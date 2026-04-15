@@ -155,12 +155,17 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: transform 0.35s cubic-bezier(.4,2,.6,1), border-color 0.25s, box-shadow 0.3s;
+    animation: fadeInUp 0.55s ease both;
+    will-change: transform;
   }
+  .breed-card:nth-child(3n+1) { animation-delay: 0.05s; }
+  .breed-card:nth-child(3n+2) { animation-delay: 0.12s; }
+  .breed-card:nth-child(3n+3) { animation-delay: 0.19s; }
   .breed-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px) perspective(700px) rotateY(3deg) rotateX(1.5deg) scale(1.01);
     border-color: var(--accent2);
-    box-shadow: 0 8px 32px rgba(58,235,165,0.1);
+    box-shadow: 0 14px 44px rgba(58,235,165,0.16), 0 4px 14px rgba(0,0,0,0.35);
   }
   .card-header {
     padding: 14px 16px 12px;
@@ -338,6 +343,253 @@
     .classif-table { font-size: 0.8rem; }
     .section-title h2 { font-size: 1.5rem; }
   }
+
+  /* ════════════════════════════════════
+     ANIMATIONS & 3D TRANSITIONS
+  ════════════════════════════════════ */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.94) translateY(18px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+  @keyframes flipOut {
+    from { transform: perspective(700px) rotateY(0deg); opacity: 1; }
+    to   { transform: perspective(700px) rotateY(90deg); opacity: 0; }
+  }
+  @keyframes flipIn {
+    from { transform: perspective(700px) rotateY(-90deg); opacity: 0; }
+    to   { transform: perspective(700px) rotateY(0deg);   opacity: 1; }
+  }
+  @keyframes wrongShake {
+    0%,100% { transform: translateX(0); }
+    20%     { transform: translateX(-7px); }
+    60%     { transform: translateX(7px); }
+    80%     { transform: translateX(-3px); }
+  }
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+  @keyframes glowPulse {
+    0%,100% { text-shadow: 0 0 18px rgba(245,200,66,0.35); }
+    50%     { text-shadow: 0 0 40px rgba(245,200,66,0.75); }
+  }
+  header h1 { animation: glowPulse 3.2s ease-in-out infinite; }
+  .section-header { animation: fadeInUp 0.6s ease both; }
+
+  .quiz-flip-out { animation: flipOut 0.28s ease forwards; }
+  .quiz-flip-in  { animation: flipIn  0.28s ease forwards; }
+
+  /* ════════════════════════════════════
+     QUIZ SECTION
+  ════════════════════════════════════ */
+  .quiz-nav {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+  }
+  .quiz-nav-btn {
+    padding: 8px 20px; border-radius: 8px;
+    border: 2px solid var(--accent4); background: transparent;
+    color: var(--accent4); cursor: pointer;
+    font-family: inherit; font-size: 0.88rem; font-weight: 700;
+    transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .quiz-nav-btn.active,
+  .quiz-nav-btn:hover { background: var(--accent4); color: #0f1117; }
+
+  .quiz-arena {
+    max-width: 680px; margin: 0 auto;
+    animation: fadeInScale 0.5s ease both;
+  }
+  .quiz-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px; font-size: 0.88rem; color: var(--muted);
+  }
+  .quiz-meta strong { color: var(--accent1); font-size: 1.05rem; }
+  .quiz-progress-wrap {
+    background: var(--surface); border-radius: 20px;
+    height: 7px; margin-bottom: 24px; overflow: hidden;
+  }
+  .quiz-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent4));
+    border-radius: 20px; transition: width 0.5s ease;
+  }
+
+  .quiz-card {
+    background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 28px 28px 24px;
+    margin-bottom: 20px;
+  }
+  .quiz-card.correct-state { border-color: var(--accent2); background: rgba(58,235,165,0.05); }
+  .quiz-card.wrong-state   { border-color: var(--accent3); background: rgba(255,126,95,0.05); }
+
+  .quiz-q-num {
+    font-size: 0.75rem; color: var(--muted); letter-spacing: 0.6px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .quiz-q-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.18rem; color: var(--text);
+    margin-bottom: 22px; line-height: 1.55;
+  }
+  .quiz-options {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .quiz-opt {
+    padding: 10px 14px; border: 1.5px solid var(--border);
+    border-radius: 8px; background: var(--surface);
+    color: var(--text); cursor: pointer;
+    font-family: inherit; font-size: 0.87rem;
+    text-align: left; transition: all 0.18s; line-height: 1.4;
+  }
+  .quiz-opt:hover:not(:disabled) {
+    border-color: var(--accent4); background: rgba(124,159,255,0.1);
+    transform: translateY(-2px);
+  }
+  .quiz-opt.opt-correct {
+    border-color: var(--accent2) !important;
+    background: rgba(58,235,165,0.15) !important;
+    color: var(--accent2) !important; font-weight: 700;
+  }
+  .quiz-opt.opt-wrong {
+    border-color: var(--accent3) !important;
+    background: rgba(255,126,95,0.15) !important;
+    color: var(--accent3) !important;
+  }
+  .quiz-opt.opt-reveal {
+    border-color: rgba(58,235,165,0.4) !important;
+    background: rgba(58,235,165,0.06) !important;
+  }
+  .quiz-opt:disabled { cursor: default; }
+
+  .quiz-explanation {
+    margin-top: 18px; padding: 14px 16px;
+    background: rgba(245,200,66,0.07);
+    border-left: 3px solid var(--accent1);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem; color: var(--text); line-height: 1.6;
+    animation: fadeInUp 0.35s ease both;
+  }
+  .quiz-explanation strong { color: var(--accent1); }
+  .quiz-result-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; margin-bottom: 6px; display: block;
+  }
+  .quiz-result-label.lbl-correct { color: var(--accent2); }
+  .quiz-result-label.lbl-wrong   { color: var(--accent3); }
+
+  .quiz-btn-row {
+    display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px;
+  }
+  .quiz-btn {
+    padding: 10px 28px; border-radius: 8px; border: none;
+    font-family: inherit; font-size: 0.92rem; font-weight: 700;
+    cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .quiz-btn-primary { background: var(--accent4); color: #0f1117; }
+  .quiz-btn-primary:hover { background: #5aaaff; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(124,159,255,0.4); }
+  .quiz-btn-secondary { background: transparent; border: 2px solid var(--muted); color: var(--muted); }
+  .quiz-btn-secondary:hover { border-color: var(--text); color: var(--text); }
+
+  .quiz-final {
+    text-align: center; padding: 48px 28px;
+    background: var(--card); border-radius: 16px;
+    border: 1.5px solid var(--border);
+    animation: popIn 0.55s cubic-bezier(.4,2,.6,1) both;
+  }
+  .quiz-final-trophy { font-size: 3.5rem; margin-bottom: 12px; }
+  .quiz-final-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem; font-weight: 900; line-height: 1;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 6px;
+  }
+  .quiz-final-label { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+  .quiz-final-msg { font-size: 1.05rem; color: var(--text); line-height: 1.7; margin-bottom: 32px; }
+
+  /* ════════════════════════════════════
+     MATCHING SECTION
+  ════════════════════════════════════ */
+  .match-set {
+    background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 28px; margin-bottom: 32px;
+    animation: fadeInScale 0.55s ease both;
+  }
+  .match-set-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; color: var(--accent1); margin-bottom: 6px;
+  }
+  .match-set-instruction {
+    font-size: 0.84rem; color: var(--muted); margin-bottom: 22px;
+  }
+  .match-columns {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    margin-bottom: 18px;
+  }
+  .match-col-header {
+    font-size: 0.76rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.6px; color: var(--muted);
+    margin-bottom: 10px; padding-bottom: 7px;
+    border-bottom: 1px solid var(--border);
+  }
+  .match-item {
+    padding: 10px 14px; margin-bottom: 8px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    background: var(--surface); cursor: pointer;
+    font-size: 0.87rem; line-height: 1.4;
+    transition: all 0.2s; user-select: none;
+  }
+  .match-item:hover:not(.matched):not(.wrong-flash):not([data-disabled]) {
+    border-color: var(--accent4); background: rgba(124,159,255,0.1);
+  }
+  .match-item.selected {
+    border-color: var(--accent4) !important;
+    background: rgba(124,159,255,0.18) !important;
+    color: var(--accent4); transform: scale(1.02);
+    box-shadow: 0 0 14px rgba(124,159,255,0.22);
+  }
+  .match-item.matched {
+    border-color: var(--accent2) !important;
+    background: rgba(58,235,165,0.12) !important;
+    color: var(--accent2); cursor: default;
+    animation: popIn 0.35s cubic-bezier(.4,2,.6,1) both;
+  }
+  .match-item.wrong-flash {
+    border-color: var(--accent3) !important;
+    background: rgba(255,126,95,0.15) !important;
+    color: var(--accent3);
+    animation: wrongShake 0.4s ease both;
+  }
+  .match-score-row {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+  .match-score { font-size: 0.88rem; color: var(--muted); }
+  .match-score strong { color: var(--accent2); font-size: 1rem; }
+  .match-reset-btn {
+    padding: 6px 18px; border-radius: 6px;
+    border: 1.5px solid var(--muted); background: transparent;
+    color: var(--muted); cursor: pointer;
+    font-family: inherit; font-size: 0.84rem; transition: all 0.2s;
+  }
+  .match-reset-btn:hover { border-color: var(--accent4); color: var(--accent4); }
+  .match-complete-banner {
+    display: none; text-align: center; padding: 14px;
+    background: rgba(58,235,165,0.1); border: 1.5px solid var(--accent2);
+    border-radius: 10px; color: var(--accent2);
+    font-family: 'Playfair Display', serif; font-size: 1.05rem;
+    margin-top: 14px; animation: popIn 0.4s cubic-bezier(.4,2,.6,1) both;
+  }
+  .match-complete-banner.show { display: block; }
+
+  @media (max-width: 600px) {
+    .match-columns  { grid-template-columns: 1fr; }
+    .quiz-options   { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -361,6 +613,8 @@
     <a href="#sheep" class="nav-link"><span class="nav-emoji">🐑</span> Sheep</a>
     <a href="#goat" class="nav-link"><span class="nav-emoji">🐐</span> Goat</a>
     <a href="#chicken" class="nav-link"><span class="nav-emoji">🐓</span> Chicken</a>
+    <a href="#quiz" class="nav-link"><span class="nav-emoji">📝</span> Quiz</a>
+    <a href="#match" class="nav-link"><span class="nav-emoji">🔗</span> Match</a>
   </div>
 </nav>
 
@@ -1933,10 +2187,52 @@
 
 </main>
 
+<!-- ═══════════════════════════════════
+     QUIZ SECTION
+═══════════════════════════════════ -->
+<main style="padding-top:0">
+
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-icon">📝</span>
+    <div class="section-title">
+      <h2>Quiz – Test Your Knowledge</h2>
+      <p>Multiple-choice questions covering all animal breeds · Instant feedback · Score tracking</p>
+    </div>
+  </div>
+
+  <div class="quiz-nav" id="quizNav">
+    <button class="quiz-nav-btn active" onclick="startQuiz('all',this)">🌟 All Breeds</button>
+    <button class="quiz-nav-btn" onclick="startQuiz('cattle',this)">🐄 Cattle</button>
+    <button class="quiz-nav-btn" onclick="startQuiz('buffalo',this)">🐃 Buffalo</button>
+    <button class="quiz-nav-btn" onclick="startQuiz('small',this)">🐑 Small Ruminants</button>
+    <button class="quiz-nav-btn" onclick="startQuiz('poultry',this)">🐓 Poultry</button>
+  </div>
+
+  <div id="quizArena" class="quiz-arena"></div>
+</section>
+
+<!-- ═══════════════════════════════════
+     MATCHING SECTION
+═══════════════════════════════════ -->
+<section id="match">
+  <div class="section-header">
+    <span class="section-icon">🔗</span>
+    <div class="section-title">
+      <h2>Matching – Connect the Pairs</h2>
+      <p>Click a breed name, then click the matching feature · 3 sets covering all animals</p>
+    </div>
+  </div>
+
+  <div id="matchContainer"></div>
+</section>
+
+</main>
+
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-// Nav active state
+// ── NAV ACTIVE STATE ──────────────────────────────────────────────────────
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
@@ -1950,13 +2246,11 @@ window.addEventListener('scroll', () => {
   btn.classList.toggle('visible', window.scrollY > 400);
 });
 
-// Filter function
+// ── FILTER FUNCTION ───────────────────────────────────────────────────────
 function filterBreeds(section, cat, el) {
-  // Update tabs
   const tabs = el.parentElement.querySelectorAll('.class-tab');
   tabs.forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  // Filter cards
   const grid = document.getElementById(section + 'Grid');
   const cards = grid.querySelectorAll('.breed-card');
   cards.forEach(card => {
@@ -1966,10 +2260,439 @@ function filterBreeds(section, cat, el) {
       card.style.display = 'none';
     }
   });
-  // Show/hide sub-section headers (keep visible for UX)
   const subs = grid.querySelectorAll('.sub-section');
   subs.forEach(s => s.style.display = cat === 'all' ? '' : 'none');
 }
+
+// ════════════════════════════════════════════════════════════════════════════
+// QUIZ LOGIC
+// ════════════════════════════════════════════════════════════════════════════
+const quizData = [
+  // CATTLE
+  { q: "Which Indian cow breed is considered the best milch breed, producing 1800–2100 kg milk per lactation?",
+    opts: ["Gir", "Sahiwal", "Red Sindhi", "Tharparkar"], ans: 1,
+    exp: "<strong>Sahiwal</strong> from Montgomery (now Pakistan) tops Indian dairy breeds with 1800–2100 kg/lactation and 4.5% fat. It is docile and tick-tolerant.", cat: "cattle" },
+  { q: "Gir cattle are distinctive for their unique horn shape. What shape are their horns?",
+    opts: ["Lyre-shaped", "Stumpy and short", "Half-moon shaped", "Spiral / coiled"], ans: 2,
+    exp: "<strong>Gir</strong> cattle have characteristic half-moon shaped horns (curve downward then sweep upward). They originate from Gir Forest, Gujarat, and are exported to Brazil.", cat: "cattle" },
+  { q: "Which synthetic cattle breed is developed by ICAR-CIRC Meerut by crossing Holstein Friesian × Sahiwal in 62.5:37.5 ratio?",
+    opts: ["Karan Fries", "Sunandini", "Frieswal", "Jersey Cross"], ans: 2,
+    exp: "<strong>Frieswal</strong> = HF (62.5%) × Sahiwal (37.5%), developed at ICAR-CIRC, Meerut. It combines European milk yield with Indian adaptability.", cat: "cattle" },
+  { q: "Which Indian cattle breed is nicknamed 'Sahiwal of Rajasthan' and originates from western Rajasthan?",
+    opts: ["Tharparkar", "Nagori", "Kankrej", "Rathi"], ans: 3,
+    exp: "<strong>Rathi</strong> from Bikaner and Churu (west Rajasthan) descended from Sahiwal × local breeds. It is the 5th milch breed in the 'SRGRT' list.", cat: "cattle" },
+  { q: "Which Indian cattle breed is the tallest, exported to Brazil as 'Nelore', and used for draught and beef?",
+    opts: ["Kankrej", "Ongole", "Amritmahal", "Hariana"], ans: 1,
+    exp: "<strong>Ongole</strong> (Nellore, AP) is the tallest Indian Zebu breed. It was exported to Brazil in large numbers where it is called Nelore and dominates Brazilian beef industry.", cat: "cattle" },
+
+  // BUFFALO
+  { q: "Which buffalo breed has the highest butterfat content (12–13%) of any buffalo breed in the world?",
+    opts: ["Murrah", "Surti", "Bhadawari", "Nili-Ravi"], ans: 2,
+    exp: "<strong>Bhadawari</strong> buffalo from UP/MP has 12–13% butterfat — the highest among all buffalo breeds — though total milk yield is lower than Murrah.", cat: "buffalo" },
+  { q: "Which Indian buffalo breed is considered the best dairy buffalo, known for its tightly coiled spiral horns?",
+    opts: ["Jafarabadi", "Surti", "Pandharpuri", "Murrah"], ans: 3,
+    exp: "<strong>Murrah</strong> from Rohtak/Hisar, Haryana is the world's premier dairy buffalo. Its tightly coiled spiral horns are a hallmark feature. It gives 1800–2500 kg milk/lactation.", cat: "buffalo" },
+  { q: "Which buffalo breed has the longest horns, measuring up to 1.5 metres, found in Maharashtra?",
+    opts: ["Nagpuri", "Jafarabadi", "Pandharpuri", "Marathwadi"], ans: 2,
+    exp: "<strong>Pandharpuri</strong> buffalo from Maharashtra has the longest horns of any buffalo breed — up to 1.5 m in length.", cat: "buffalo" },
+  { q: "Which Indian buffalo breed has drooping curved horns and is known as the heaviest Indian buffalo?",
+    opts: ["Surti", "Jafarabadi", "Toda", "Mehsana"], ans: 1,
+    exp: "<strong>Jafarabadi</strong> from Gujarat has large drooping horns and is the heaviest Indian buffalo breed. It is found in Saurashtra region.", cat: "buffalo" },
+
+  // SMALL RUMINANTS (sheep & goat)
+  { q: "Which Indian sheep breed carries the FecB gene making it the most prolific sheep with high twinning rates?",
+    opts: ["Chokla", "Nilgiri", "Muzaffarnagri", "Garole"], ans: 3,
+    exp: "<strong>Garole</strong> sheep from West Bengal carries the FecB (Booroola) gene responsible for multiple births. It is the most prolific Indian sheep breed.", cat: "small" },
+  { q: "Which sheep breed is called 'Bikaneri' and produces the finest carpet wool in India?",
+    opts: ["Garole", "Chokla", "Malpura", "Nali"], ans: 1,
+    exp: "<strong>Chokla</strong> (also called Bikaneri or Shekhawati) from Rajasthan produces India's finest carpet wool. It is a medium-sized white breed.", cat: "small" },
+  { q: "Which Indian goat breed won the World Bank award for best skin quality and is most prolific?",
+    opts: ["Jamunapari", "Beetal", "Barbari", "Black Bengal"], ans: 3,
+    exp: "<strong>Black Bengal</strong> goat from West Bengal has the best skin quality, winning a World Bank award. It is highly prolific and well-adapted to humid climates.", cat: "small" },
+  { q: "Which is the tallest Indian goat breed originating from Etawah district of Uttar Pradesh?",
+    opts: ["Beetal", "Sirohi", "Jamunapari", "Barbari"], ans: 2,
+    exp: "<strong>Jamunapari</strong> from Etawah (UP) is the tallest and most elegant Indian goat. It is the ancestor of the Boer goat and many improved goat breeds globally.", cat: "small" },
+
+  // POULTRY
+  { q: "Which chicken breed holds the world record for egg laying — 364 eggs in 365 days (1 hen)?",
+    opts: ["White Leghorn", "Rhode Island Red", "Minorca", "Australorp"], ans: 3,
+    exp: "<strong>Australorp</strong> (Australian Black Orpington) holds the world record of 364 eggs in 365 days. It averages 250–300 eggs/year and has jet black plumage with green sheen.", cat: "poultry" },
+  { q: "White Leghorn belongs to which class and produces what colour of eggs?",
+    opts: ["American class; Brown eggs", "Mediterranean class; White eggs", "Asiatic class; Tinted eggs", "English class; Brown eggs"], ans: 1,
+    exp: "<strong>White Leghorn</strong> is Mediterranean class (all Mediterranean breeds = white earlobes = white eggs). It produces 250–300 white eggs/year and is the most popular commercial layer.", cat: "poultry" },
+  { q: "Kadaknath, the unique Indian chicken breed from Jhabua, MP, is famous for its:",
+    opts: ["Highest egg production", "Feathered legs", "All-black meat, bones and organs (GI tag)", "Largest body weight"], ans: 2,
+    exp: "<strong>Kadaknath</strong> has fibro-melanosis — black meat, black bones, black blood. It holds a GI (Geographical Indication) tag for Jhabua/Alirajpur districts of Madhya Pradesh.", cat: "poultry" },
+  { q: "Which chicken breed is called 'King of Poultry' and is the largest chicken breed, reaching 5–7 kg?",
+    opts: ["Cornish", "Wyandotte", "Brahma", "Australorp"], ans: 2,
+    exp: "<strong>Brahma</strong> (Asiatic class) is known as the 'King of Poultry'. It is the largest chicken breed (5–7 kg), has feathered legs, and a pea comb. Developed from Indian Chittagong birds.", cat: "poultry" },
+  { q: "Which chicken breed is the primary sire breed used in modern commercial broiler production worldwide?",
+    opts: ["Rhode Island Red", "Plymouth Rock", "New Hampshire", "Cornish"], ans: 3,
+    exp: "<strong>Cornish</strong> (English class, also called 'Indian Game') has the widest breast muscles. Cornish × Plymouth Rock cross gave rise to the modern commercial broiler industry.", cat: "poultry" },
+  { q: "Which ICAR-developed chicken variety is designed for rural backyard farming and produces ~150 eggs/year?",
+    opts: ["Gramapriya", "Krishibro", "Vanaraja", "Kadaknath"], ans: 2,
+    exp: "<strong>Vanaraja</strong> (VANA=forest + RAJA=king) developed by ICAR-DPR Hyderabad is a multi-coloured dual-purpose bird for rural/backyard farming. It tolerates harsh climate and low nutrition.", cat: "poultry" }
+];
+
+let quizState = { questions: [], idx: 0, score: 0, answered: false };
+
+function startQuiz(cat, btn) {
+  // Update nav button
+  document.querySelectorAll('.quiz-nav-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const qs = cat === 'all' ? [...quizData] : quizData.filter(q => q.cat === cat);
+  // Shuffle
+  for (let i = qs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [qs[i], qs[j]] = [qs[j], qs[i]];
+  }
+  quizState = { questions: qs, idx: 0, score: 0, answered: false };
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const arena = document.getElementById('quizArena');
+  const { questions, idx, score } = quizState;
+
+  if (idx >= questions.length) {
+    showQuizFinal();
+    return;
+  }
+  const q = questions[idx];
+  const total = questions.length;
+  const pct = Math.round((idx / total) * 100);
+
+  const optHTML = q.opts.map((o, i) =>
+    `<button class="quiz-opt" onclick="pickAnswer(${i})">${String.fromCharCode(65+i)}. ${o}</button>`
+  ).join('');
+
+  arena.innerHTML = `
+    <div class="quiz-meta">
+      <span>Question <strong>${idx + 1}</strong> / ${total}</span>
+      <span>Score: <strong>${score}</strong></span>
+    </div>
+    <div class="quiz-progress-wrap">
+      <div class="quiz-progress-bar" style="width:${pct}%"></div>
+    </div>
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-q-num">Q${idx + 1} of ${total} &nbsp;·&nbsp; ${catLabel(q.cat)}</div>
+      <div class="quiz-q-text">${q.q}</div>
+      <div class="quiz-options" id="quizOpts">${optHTML}</div>
+      <div id="quizExp"></div>
+      <div class="quiz-btn-row" id="quizBtnRow" style="display:none">
+        <button class="quiz-btn quiz-btn-secondary" onclick="startQuiz('${currentCat()}')">↺ Restart</button>
+        <button class="quiz-btn quiz-btn-primary" onclick="nextQuizQuestion()">
+          ${idx + 1 < total ? 'Next Question →' : 'See Results 🏆'}
+        </button>
+      </div>
+    </div>`;
+  quizState.answered = false;
+}
+
+function catLabel(cat) {
+  return { cattle:'🐄 Cattle', buffalo:'🐃 Buffalo', small:'🐑 Small Ruminants', poultry:'🐓 Poultry' }[cat] || '🌟 All';
+}
+function currentCat() {
+  const active = document.querySelector('.quiz-nav-btn.active');
+  if (!active) return 'all';
+  const txt = active.textContent.trim();
+  if (txt.includes('Cattle')) return 'cattle';
+  if (txt.includes('Buffalo')) return 'buffalo';
+  if (txt.includes('Small')) return 'small';
+  if (txt.includes('Poultry')) return 'poultry';
+  return 'all';
+}
+
+function pickAnswer(chosen) {
+  if (quizState.answered) return;
+  quizState.answered = true;
+
+  const q = quizState.questions[quizState.idx];
+  const correct = q.ans;
+  const isCorrect = chosen === correct;
+  if (isCorrect) quizState.score++;
+
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correct) btn.classList.add('opt-correct');
+    else if (i === chosen && !isCorrect) btn.classList.add('opt-wrong');
+    else if (i !== correct) btn.classList.add('opt-reveal');
+  });
+
+  const card = document.getElementById('quizCard');
+  card.classList.add(isCorrect ? 'correct-state' : 'wrong-state');
+
+  document.getElementById('quizExp').innerHTML = `
+    <div class="quiz-explanation">
+      <span class="quiz-result-label ${isCorrect ? 'lbl-correct' : 'lbl-wrong'}">
+        ${isCorrect ? '✅ Correct!' : '❌ Incorrect'}
+      </span>
+      ${q.exp}
+    </div>`;
+
+  document.getElementById('quizBtnRow').style.display = 'flex';
+
+  // 3D flip animation on card
+  card.classList.add('quiz-flip-out');
+  setTimeout(() => {
+    card.classList.remove('quiz-flip-out');
+    card.classList.add('quiz-flip-in');
+    setTimeout(() => card.classList.remove('quiz-flip-in'), 300);
+  }, 280);
+}
+
+function nextQuizQuestion() {
+  quizState.idx++;
+  const arena = document.getElementById('quizArena');
+  arena.classList.add('quiz-flip-out');
+  setTimeout(() => {
+    arena.classList.remove('quiz-flip-out');
+    renderQuizQuestion();
+    arena.classList.add('quiz-flip-in');
+    setTimeout(() => arena.classList.remove('quiz-flip-in'), 300);
+  }, 280);
+}
+
+function showQuizFinal() {
+  const { score, questions } = quizState;
+  const total = questions.length;
+  const pct = Math.round((score / total) * 100);
+  let trophy = '🥉', msg = 'Keep practising! Review the breed cards above.';
+  if (pct >= 90) { trophy = '🏆'; msg = 'Outstanding! You have mastered livestock breed identification!'; }
+  else if (pct >= 70) { trophy = '🥇'; msg = 'Great work! You have a solid grasp of livestock breeds.'; }
+  else if (pct >= 50) { trophy = '🥈'; msg = 'Good effort! A few more rounds and you will ace the exam.'; }
+
+  document.getElementById('quizArena').innerHTML = `
+    <div class="quiz-final">
+      <div class="quiz-final-trophy">${trophy}</div>
+      <div class="quiz-final-score">${score}/${total}</div>
+      <div class="quiz-final-label">Score: ${pct}%</div>
+      <div class="quiz-final-msg">${msg}</div>
+      <div class="quiz-btn-row" style="justify-content:center">
+        <button class="quiz-btn quiz-btn-secondary" onclick="startQuiz('${currentCat()}')">↺ Try Again</button>
+        <button class="quiz-btn quiz-btn-primary" onclick="startQuiz('all')">🌟 All Breeds Quiz</button>
+      </div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// MATCHING LOGIC
+// ════════════════════════════════════════════════════════════════════════════
+const matchingSets = [
+  {
+    title: "🐄 Cattle Breeds – Match to Key Feature",
+    pairs: [
+      { breed: "Sahiwal",       feature: "Best Indian milch cow — 1800–2100 kg/lactation" },
+      { breed: "Gir",           feature: "Half-moon shaped horns; exported to Brazil" },
+      { breed: "Tharparkar",    feature: "Lyre-shaped horns; desert-adapted (Thar)" },
+      { breed: "Rathi",         feature: "'Sahiwal of Rajasthan'; western Rajasthan" },
+      { breed: "Frieswal",      feature: "Synthetic breed: HF × Sahiwal (62.5:37.5)" },
+      { breed: "Ongole",        feature: "Tallest Indian cattle; exported as 'Nelore' to Brazil" }
+    ]
+  },
+  {
+    title: "🐃 Buffalo & Small Ruminants – Match to Key Fact",
+    pairs: [
+      { breed: "Murrah Buffalo",     feature: "Best Indian dairy buffalo; tightly coiled spiral horns" },
+      { breed: "Bhadawari Buffalo",  feature: "Highest butterfat content — 12–13% of any buffalo" },
+      { breed: "Pandharpuri Buffalo",feature: "Longest buffalo horns — up to 1.5 metres" },
+      { breed: "Garole Sheep",       feature: "FecB gene; most prolific sheep; high twinning rate" },
+      { breed: "Black Bengal Goat",  feature: "World Bank award for best skin quality" },
+      { breed: "Jamunapari Goat",    feature: "Tallest Indian goat; ancestor of Boer goat" }
+    ]
+  },
+  {
+    title: "🐓 Poultry – Match the Breed to its Record / Feature",
+    pairs: [
+      { breed: "Australorp",    feature: "World egg record: 364 eggs in 365 days" },
+      { breed: "White Leghorn", feature: "Best commercial layer; Mediterranean; white eggs" },
+      { breed: "Kadaknath",     feature: "All-black meat, bones & organs; GI tag (Jhabua, MP)" },
+      { breed: "Brahma",        feature: "King of Poultry; largest breed; feathered legs" },
+      { breed: "Cornish",       feature: "Father of commercial broiler; widest breast muscles" },
+      { breed: "Vanaraja",      feature: "ICAR backyard village chicken; ~150 eggs/year" }
+    ]
+  }
+];
+
+// Per-set state: selectedLeft, selectedRight, matchedPairs, wrongAttempts
+const matchState = [];
+
+function initMatching() {
+  const container = document.getElementById('matchContainer');
+  container.innerHTML = '';
+
+  matchingSets.forEach((set, si) => {
+    // Shuffle right-side features
+    const shuffled = [...set.pairs.map((p, i) => ({ text: p.feature, origIdx: i }))];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    matchState[si] = {
+      shuffledRight: shuffled,
+      selectedLeft: null,    // index in pairs (original)
+      selectedRight: null,   // index in shuffled array
+      matched: new Set(),    // original pair indices that are matched
+      wrongAttempts: 0
+    };
+
+    const leftItems = set.pairs.map((p, i) =>
+      `<div class="match-item" id="ml-${si}-${i}" onclick="selectMatchLeft(${si},${i})">${p.breed}</div>`
+    ).join('');
+
+    const rightItems = shuffled.map((f, i) =>
+      `<div class="match-item" id="mr-${si}-${i}" onclick="selectMatchRight(${si},${i})">${f.text}</div>`
+    ).join('');
+
+    container.innerHTML += `
+      <div class="match-set" id="matchSet-${si}">
+        <div class="match-set-title">${set.title}</div>
+        <div class="match-set-instruction">Click a breed name on the left, then click the matching feature on the right.</div>
+        <div class="match-columns">
+          <div>
+            <div class="match-col-header">Breed / Animal</div>
+            ${leftItems}
+          </div>
+          <div>
+            <div class="match-col-header">Key Feature / Fact</div>
+            ${rightItems}
+          </div>
+        </div>
+        <div class="match-score-row">
+          <div class="match-score" id="ms-${si}">Matched: <strong>0</strong> / ${set.pairs.length}</div>
+          <button class="match-reset-btn" onclick="resetMatch(${si})">↺ Reset</button>
+        </div>
+        <div class="match-complete-banner" id="mb-${si}">
+          🎉 Perfect! All pairs matched correctly!
+        </div>
+      </div>`;
+  });
+}
+
+function selectMatchLeft(si, li) {
+  const st = matchState[si];
+  if (st.matched.has(li)) return; // already matched
+
+  // Deselect previous left
+  if (st.selectedLeft !== null) {
+    const prev = document.getElementById(`ml-${si}-${st.selectedLeft}`);
+    if (prev && !st.matched.has(st.selectedLeft)) prev.classList.remove('selected');
+  }
+
+  if (st.selectedLeft === li) {
+    st.selectedLeft = null;
+    return;
+  }
+
+  st.selectedLeft = li;
+  document.getElementById(`ml-${si}-${li}`).classList.add('selected');
+
+  if (st.selectedRight !== null) checkMatch(si);
+}
+
+function selectMatchRight(si, ri) {
+  const st = matchState[si];
+  // Find origIdx for this shuffled position
+  const origIdx = st.shuffledRight[ri].origIdx;
+  if (st.matched.has(origIdx)) return; // already matched
+
+  // Deselect previous right
+  if (st.selectedRight !== null) {
+    const prev = document.getElementById(`mr-${si}-${st.selectedRight}`);
+    const prevOrig = st.shuffledRight[st.selectedRight].origIdx;
+    if (prev && !st.matched.has(prevOrig)) prev.classList.remove('selected');
+  }
+
+  if (st.selectedRight === ri) {
+    st.selectedRight = null;
+    return;
+  }
+
+  st.selectedRight = ri;
+  document.getElementById(`mr-${si}-${ri}`).classList.add('selected');
+
+  if (st.selectedLeft !== null) checkMatch(si);
+}
+
+function checkMatch(si) {
+  const st = matchState[si];
+  const li = st.selectedLeft;
+  const ri = st.selectedRight;
+  const origIdx = st.shuffledRight[ri].origIdx;
+
+  const leftEl  = document.getElementById(`ml-${si}-${li}`);
+  const rightEl = document.getElementById(`mr-${si}-${ri}`);
+
+  if (li === origIdx) {
+    // Correct match
+    st.matched.add(li);
+    leftEl.classList.remove('selected');
+    rightEl.classList.remove('selected');
+    leftEl.classList.add('matched');
+    rightEl.classList.add('matched');
+    st.selectedLeft = null;
+    st.selectedRight = null;
+
+    // Update score
+    document.getElementById(`ms-${si}`).innerHTML =
+      `Matched: <strong>${st.matched.size}</strong> / ${matchingSets[si].pairs.length}`;
+
+    // Check completion
+    if (st.matched.size === matchingSets[si].pairs.length) {
+      document.getElementById(`mb-${si}`).classList.add('show');
+    }
+  } else {
+    // Wrong match — flash both red, then deselect
+    st.wrongAttempts++;
+    leftEl.classList.remove('selected');
+    rightEl.classList.remove('selected');
+    leftEl.classList.add('wrong-flash');
+    rightEl.classList.add('wrong-flash');
+    setTimeout(() => {
+      leftEl.classList.remove('wrong-flash');
+      rightEl.classList.remove('wrong-flash');
+    }, 500);
+    st.selectedLeft = null;
+    st.selectedRight = null;
+  }
+}
+
+function resetMatch(si) {
+  // Fully re-render this set
+  matchState[si] = null;
+  const set = matchingSets[si];
+  const shuffled = [...set.pairs.map((p, i) => ({ text: p.feature, origIdx: i }))];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  matchState[si] = { shuffledRight: shuffled, selectedLeft: null, selectedRight: null, matched: new Set(), wrongAttempts: 0 };
+
+  const leftItems = set.pairs.map((p, i) =>
+    `<div class="match-item" id="ml-${si}-${i}" onclick="selectMatchLeft(${si},${i})">${p.breed}</div>`
+  ).join('');
+  const rightItems = shuffled.map((f, i) =>
+    `<div class="match-item" id="mr-${si}-${i}" onclick="selectMatchRight(${si},${i})">${f.text}</div>`
+  ).join('');
+
+  const setEl = document.getElementById(`matchSet-${si}`);
+  setEl.querySelector('.match-columns').innerHTML = `
+    <div>
+      <div class="match-col-header">Breed / Animal</div>${leftItems}
+    </div>
+    <div>
+      <div class="match-col-header">Key Feature / Fact</div>${rightItems}
+    </div>`;
+  document.getElementById(`ms-${si}`).innerHTML = `Matched: <strong>0</strong> / ${set.pairs.length}`;
+  document.getElementById(`mb-${si}`).classList.remove('show');
+}
+
+// ── INITIALISE ────────────────────────────────────────────────────────────
+startQuiz('all', document.querySelector('.quiz-nav-btn'));
+initMatching();
 </script>
 
 </body>
