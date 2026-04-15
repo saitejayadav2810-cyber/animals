@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian & Foreign Livestock Breeds – Complete Classification</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --card: #1e2335;
+    --border: #2a3050;
+    --accent1: #f5c842;
+    --accent2: #3aeba5;
+    --accent3: #ff7e5f;
+    --accent4: #7c9fff;
+    --accent5: #e07cf5;
+    --text: #e8eaf6;
+    --muted: #8892b0;
+    --tag-bg: #252d47;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1f35 50%, #0f1117 100%);
+    border-bottom: 2px solid var(--accent1);
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(245,200,66,0.12) 0%, transparent 65%);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 900;
+    color: var(--accent1);
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  header p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  .header-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin-top: 16px;
+    position: relative;
+  }
+  .header-tag {
+    background: rgba(245,200,66,0.12);
+    border: 1px solid rgba(245,200,66,0.3);
+    color: var(--accent1);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    padding: 0 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-inner {
+    display: flex; gap: 0;
+    max-width: 1200px; margin: 0 auto;
+  }
+  nav a {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 14px 18px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.3px;
+  }
+  nav a:hover { color: var(--text); border-bottom-color: var(--accent2); }
+  nav a.active { color: var(--accent1); border-bottom-color: var(--accent1); }
+  .nav-emoji { font-size: 1.1rem; }
+
+  /* ── MAIN LAYOUT ── */
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 16px 60px; }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    margin: 48px 0 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon { font-size: 2.4rem; }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--accent1);
+  }
+  .section-title p { color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+
+  /* ── CLASSIFICATION TABS ── */
+  .class-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 22px;
+  }
+  .class-tab {
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .class-tab:hover { border-color: var(--accent2); color: var(--accent2); }
+  .class-tab.active { background: var(--accent2); color: #0f1117; border-color: var(--accent2); }
+
+  /* ── BREED GRID ── */
+  .breed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 18px;
+  }
+
+  /* ── BREED CARD ── */
+  .breed-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .breed-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent2);
+    box-shadow: 0 8px 32px rgba(58,235,165,0.1);
+  }
+  .card-header {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+  }
+  .breed-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .breed-aka {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .card-badges { display: flex; flex-wrap: wrap; gap: 4px; flex-shrink: 0; }
+  .badge {
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
+  .badge-milch { background: rgba(58,235,165,0.15); color: #3aeba5; border: 1px solid rgba(58,235,165,0.3); }
+  .badge-draft { background: rgba(255,126,95,0.15); color: #ff7e5f; border: 1px solid rgba(255,126,95,0.3); }
+  .badge-dual  { background: rgba(124,159,255,0.15); color: #7c9fff; border: 1px solid rgba(124,159,255,0.3); }
+  .badge-meat  { background: rgba(224,124,245,0.15); color: #e07cf5; border: 1px solid rgba(224,124,245,0.3); }
+  .badge-wool  { background: rgba(245,200,66,0.15); color: #f5c842; border: 1px solid rgba(245,200,66,0.3); }
+  .badge-egg   { background: rgba(255,220,100,0.15); color: #ffdc64; border: 1px solid rgba(255,220,100,0.3); }
+  .badge-fiber { background: rgba(200,180,255,0.15); color: #c8b4ff; border: 1px solid rgba(200,180,255,0.3); }
+  .badge-exotic { background: rgba(255,100,100,0.12); color: #ff8888; border: 1px solid rgba(255,100,100,0.3); }
+  .badge-game  { background: rgba(255,160,50,0.15); color: #ffa032; border: 1px solid rgba(255,160,50,0.3); }
+
+  .card-body { padding: 12px 16px 14px; }
+  .info-row {
+    display: flex; gap: 6px; align-items: baseline;
+    margin-bottom: 5px; font-size: 0.87rem;
+  }
+  .info-label {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-width: 68px;
+    flex-shrink: 0;
+  }
+  .info-val { color: var(--text); }
+
+  .trick-box {
+    margin-top: 10px;
+    background: rgba(245,200,66,0.07);
+    border-left: 3px solid var(--accent1);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    color: var(--accent1);
+  }
+  .trick-box strong { display: block; font-size: 0.73rem; letter-spacing: 0.5px; margin-bottom: 2px; opacity: 0.8; }
+
+  /* ── CLASSIFICATION BOX ── */
+  .classif-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 28px;
+  }
+  .classif-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent2);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .classif-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  .classif-table th {
+    background: rgba(58,235,165,0.08);
+    color: var(--accent2);
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .classif-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid rgba(42,48,80,0.5);
+    color: var(--text);
+    vertical-align: top;
+  }
+  .classif-table tr:last-child td { border-bottom: none; }
+  .classif-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── HIDDEN CARDS ── */
+  .breed-card[data-cat].hidden { display: none; }
+
+  /* ── QUICK STATS BAR ── */
+  .stats-bar {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+  }
+  .stat-item { text-align: center; flex: 1; min-width: 100px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent1);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.3px; }
+
+  /* ── SECTION DIVIDER ── */
+  .sub-section {
+    margin: 32px 0 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sub-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent3);
+    font-size: 1.2rem;
+  }
+  .sub-section::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent3), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── SCROLL TOP ── */
+  #scrollTop {
+    position: fixed; bottom: 28px; right: 24px;
+    background: var(--accent1); color: #0f1117;
+    border: none; border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 1.2rem; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(245,200,66,0.4);
+    transition: opacity 0.3s;
+    opacity: 0;
+    z-index: 200;
+  }
+  #scrollTop.visible { opacity: 1; }
+
+  /* ── SEARCH BAR ── */
+  .search-wrap {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin-bottom: 24px;
+    max-width: 400px;
+  }
+  .search-wrap input {
+    background: none; border: none; outline: none;
+    color: var(--text); font-family: inherit; font-size: 0.9rem;
+    flex: 1;
+  }
+  .search-wrap input::placeholder { color: var(--muted); }
+  .search-icon { color: var(--muted); font-size: 1rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .breed-grid { grid-template-columns: 1fr; }
+    .classif-table { font-size: 0.8rem; }
+    .section-title h2 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🐄 Indian & Foreign Livestock Breeds</h1>
+  <p>Complete Classification · Identification Characters · Memory Tricks · ICAR NBAGR Data</p>
+  <div class="header-tags">
+    <span class="header-tag">Cow · 55 Breeds</span>
+    <span class="header-tag">Buffalo · 22 Breeds</span>
+    <span class="header-tag">Sheep · 46 Breeds</span>
+    <span class="header-tag">Goat · 43 Breeds</span>
+    <span class="header-tag">Chicken · 21 Breeds</span>
+  </div>
+</header>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#cow" class="nav-link"><span class="nav-emoji">🐄</span> Cow</a>
+    <a href="#buffalo" class="nav-link"><span class="nav-emoji">🐃</span> Buffalo</a>
+    <a href="#sheep" class="nav-link"><span class="nav-emoji">🐑</span> Sheep</a>
+    <a href="#goat" class="nav-link"><span class="nav-emoji">🐐</span> Goat</a>
+    <a href="#chicken" class="nav-link"><span class="nav-emoji">🐓</span> Chicken</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════
+     COW SECTION
+═══════════════════════════════════ -->
+<section id="cow">
+  <div class="section-header">
+    <span class="section-icon">🐄</span>
+    <div class="section-title">
+      <h2>Cattle (Cow) Breeds</h2>
+      <p>55 registered Indian breeds (ICAR-NBAGR) + Important Foreign breeds · Bos indicus (Zebu) & Bos taurus</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">55</div><div class="stat-label">Indian Breeds Registered</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Milch Breeds</div></div>
+    <div class="stat-item"><div class="stat-num">~18</div><div class="stat-label">Draught Breeds</div></div>
+    <div class="stat-item"><div class="stat-num">~20</div><div class="stat-label">Dual Purpose</div></div>
+    <div class="stat-item"><div class="stat-num">193M</div><div class="stat-label">Cattle Population (2019)</div></div>
+  </div>
+
+  <div class="classif-box">
+    <h3>📋 Classification of Indian Cattle Breeds</h3>
+    <table class="classif-table">
+      <tr><th>Category</th><th>Key Breeds</th><th>Feature</th></tr>
+      <tr><td><strong>Milch (Dairy)</strong></td><td>Sahiwal, Red Sindhi, Gir, Tharparkar, Rathi</td><td>High milk, low draught. "SRGRT" mnemonic</td></tr>
+      <tr><td><strong>Draught</strong></td><td>Amritmahal, Hallikar, Kangayam, Khillari, Nagori, Bachaur, Ponwar</td><td>Strong, powerful bullocks; low milk</td></tr>
+      <tr><td><strong>Dual Purpose</strong></td><td>Hariana, Kankrej, Deoni, Dangi, Ongole, Krishna Valley, Gaolao, Mewati</td><td>Moderate milk + draught</td></tr>
+      <tr><td><strong>Synthetic</strong></td><td>Frieswal (Sahiwal × Holstein Friesian – 37.5:62.5)</td><td>ICAR-CIRC, Meerut development</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:0.82rem;color:var(--muted)">🧠 <strong>TRICK for Milch breeds:</strong> "<strong>S</strong>aree <strong>G</strong>ift <strong>R</strong>eebok <strong>T</strong>oo <strong>R</strong>ather" → Sahiwal, Gir, Red Sindhi, Tharparkar, Rathi</p>
+  </div>
+
+  <div class="class-tabs" id="cowTabs">
+    <div class="class-tab active" onclick="filterBreeds('cow','all',this)">All Breeds</div>
+    <div class="class-tab" onclick="filterBreeds('cow','milch',this)">🟢 Milch</div>
+    <div class="class-tab" onclick="filterBreeds('cow','draft',this)">🔴 Draught</div>
+    <div class="class-tab" onclick="filterBreeds('cow','dual',this)">🔵 Dual Purpose</div>
+    <div class="class-tab" onclick="filterBreeds('cow','exotic',this)">⭐ Foreign/Exotic</div>
+  </div>
+
+  <!-- MILCH BREEDS -->
+  <div class="sub-section"><h3>🟢 Milch Breeds (Indian)</h3></div>
+  <div class="breed-grid" id="cowGrid">
+
+    <div class="breed-card" data-section="cow" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Sahiwal</div><div class="breed-aka">Also: Lola, Lambi Bar, Montgomery</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Sahiwal dist., Montgomery, Pakistan (reared widely in Punjab, UP, Delhi)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Reddish-dun to pale red with white patches; sometimes dark red</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short, stumpy (~3 inches); thick base</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Heavy dewlap, massive hump (males), pendulous sheath; loose skin</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1800–2100 kg/lactation (best Indian milch); 4.5% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best Indian milch breed; tolerant of tick infestation; temperament – docile</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"SAHiwal = SA for SAARE ANIMALS se zyada doodh" – TOP milcher of India</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Red Sindhi</div><div class="breed-aka">Also: Red Karachi, Sindhi, Mahi</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Karachi & Hyderabad (Sindh), Pakistan; found in Tamil Nadu, Kerala, Odisha</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Distinctly RED – shades from dark red to pale red/yellow; white patches common</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Stumpy and short, curving outward</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Smaller and rounder than Tharparkar; compact build</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1700+ kg/lactation; 4.8–5% fat; under optimal: up to 3400 kg</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">High heat tolerance, tick resistance; used in crossbreeding programs globally</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"RED dress = RED Sindhi" – remember by COLOUR name itself. Smaller than Tharparkar = "RS < TP in size"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Gir</div><div class="breed-aka">Also: Desan, Bhadwari, Kathiawari, Surati, Gujarati</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Gir Forest, South Kathiawar, Gujarat; also Maharashtra, Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White with dark red / chocolate-brown patches; or plain red; or black patches</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">🌙 HALF-MOON shape – curved downward then upward; most distinctive feature</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Large convex forehead; long pendulous ears (leaf-like); well-developed udder</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1590–1800 kg/lactation; 4.5% fat; in Brazil cows give 6000–8000 kg!</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Exported to Brazil, Israel, USA. Brazil's "Guzerat" descended from Gir</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"GIR = Girar (curve) horns" – Half-moon curved horns + Gir Forest, Gujarat. "GIR Brazil mein GYA" – famous globally</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Tharparkar</div><div class="breed-aka">Also: White Sindhi, Grey Sindhi, Thari</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Tharparkar dist., Sindh, Pakistan; Thar Desert (Rajasthan, Gujarat)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or light grey; "face and socks white" – typical white feet (stockings)</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Lyre-shaped (curving upward and inward); medium length</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Medium to large; deep chest; muscular; excellent desert adaptation</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1663 kg/lactation; survives on Sewan grass alone in desert</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Dual purpose; drought/heat hardy; "Grey Sindhi" nickname</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"THAR = Thar desert, white like desert sand, LYRE horns like a musical instrument 🎵"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Rathi</div><div class="breed-aka">Also: Rath</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Bikaner, Churu, Nagaur, Ganganagar – Western Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Brown with white patches; or white with brown patches; mixed coat</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short, stubby; turning outward and upward</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Medium build; compact; well-adapted to arid zones of Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1100–1800 kg/lactation; 4.9% fat; drought tolerant</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Called "Sahiwal of Rajasthan"; descends from Sahiwal × local breeds</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"RATHI = Rajasthan ki Sahiwal" – 5th milch breed, often forgotten. "RATHA = chariot = dual purpose warrior"</div>
+      </div>
+    </div>
+
+    <!-- DRAUGHT BREEDS -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🔴 Draught Breeds (Indian)</h3></div>
+
+    <div class="breed-card" data-section="cow" data-cat="draft">
+      <div class="card-header">
+        <div><div class="breed-name">Amritmahal</div></div>
+        <div class="card-badges"><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Hassan, Chikmagalur, Chitradurga – Karnataka</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Grey (varying white to near-black); BLACK muzzle, feet, tail tip</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Long, sharp, bending backward; black-coloured</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Long narrow head; furrow in middle of forehead; bulging forehead</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Famous for power and endurance; developed by Mysore Maharajas in "Kaval" farms</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"AMRIT = pure warrior bull; BLACK muzzle like a soldier's beard; Karnataka's ARMY bull"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="draft">
+      <div class="card-header">
+        <div><div class="breed-name">Hallikar</div></div>
+        <div class="card-badges"><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Hassan, Mysore – Karnataka (same region as Amritmahal)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Grey to white; darker on neck/hump area</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Long horns; closely resemble Amritmahal but slightly different curvature</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Close relative of Amritmahal; also draught; princely state origin</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"HALLIKAR = HALL-like structure = big frame; Karnataka twin of Amritmahal"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="draft">
+      <div class="card-header">
+        <div><div class="breed-name">Kangayam</div><div class="breed-aka">Also: Kanganad</div></div>
+        <div class="card-badges"><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Kangayam, Erode district – Tamil Nadu</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Grey-white with dark grey on head and neck; white legs</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Long, lateral-spreading; sweep outward</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best draught breed of Tamil Nadu; used in Jallikattu; active and spirited</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"KANGA = Kangaroo jumps = energetic bull; TN's Jallikattu star"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="draft">
+      <div class="card-header">
+        <div><div class="breed-name">Khillari</div><div class="breed-aka">Also: Khilar</div></div>
+        <div class="card-badges"><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Solapur, Satara – Maharashtra; Sholapur, Sangli, Bijapur</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Grey-white; dark bluish-grey on head and neck; compact muscular body</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Long, swept-back; powerful</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">One of the fastest draught breeds; light framed but very agile; Maharashtra's top draught</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"KHILLARI = KHIL (play) = fast and agile player; Maharashtra's racing bullock"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="draft">
+      <div class="card-header">
+        <div><div class="breed-name">Nagori</div></div>
+        <div class="card-badges"><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Nagaur district – Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or light grey; shining coat</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short, stumpy; curved; short-horned zebu type</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Called "Race horse of draught breeds"; fastest of all Indian bullocks for road transport</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NAGORI = NAGO (naked speed) = fastest road-draught bull; Rajasthan's sprinter"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="draft">
+      <div class="card-header">
+        <div><div class="breed-name">Bachaur</div></div>
+        <div class="card-badges"><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Sitamarhi, Sheohar – North Bihar</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or grey; light-coloured</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short and stumpy; short-horned zebu type</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Sturdy draught breed of Bihar; powerful for heavy field work</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BACHAUR = BAL (strength) bull of Bihar"</div>
+      </div>
+    </div>
+
+    <!-- DUAL PURPOSE -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🔵 Dual Purpose Breeds (Indian)</h3></div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Hariana</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Hisar, Rohtak, Karnal – Haryana; parts of UP, Delhi</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or light grey; no coloured patches</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short, stumpy, slightly curved; short-horned type</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Slender, long neck; wedge-shaped head; angular body</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">~1350 kg/lactation (village); 4.1% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Most popular dual-purpose breed of NW India; bullock used for trotting</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"HARIANA = Haryana ka dual champion – good milk AND hard work"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Kankrej</div><div class="breed-aka">Also: Waged, Wadhiar, Talabda, Nagar</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Kankrej taluka, Banaskantha – Gujarat; Barmer, Jodhpur – Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Silver-grey to iron-grey to steel-black; unique metallic sheen</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">🎸 LYRE-shaped – thick at base, curving outward-upward; most distinctive</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Large, massive frame; strong hindquarters; high endurance</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1738 kg/lactation; 3.5% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Parent of Brahman breed (USA); "Nelli-Ravi" of cattle; most exported Indian breed historically</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"KANKREJ = KAN (ear) + KREJ (crazy)= LYRE horns like ears of a guitar; Gujarat's steel warrior"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Ongole</div><div class="breed-aka">Also: Nellore</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Ongole, Prakasam – Andhra Pradesh; also called Nellore in Telangana</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or grey-white; bulls have dark grey on head/neck</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short, thick at base; slightly curved; compact horns</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Large body; massive hump; dewlap; popular in South India and Brazil</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">~1000 kg/lactation; excellent beef in Brazil as "Nellore" beef breed</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest Zebu breed in India; biggest beef producer in Brazil</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"ONGOLE = ON-GOAL scorer = Brazil's #1 beef breed (Nellore); MASSIVE body"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Deoni</div><div class="breed-aka">Also: Dongarpati, Wannera, Ballari</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Latur, Osmanabad, Nanded – Telangana/Maharashtra border</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black and white patchy; or sometimes plain white; prominent patches</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Medium length; curving outward; lateral type</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">~1000–1200 kg/lactation</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Used in Deccan Plateau farming; combination of Gir and local; dual purpose</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"DEONI = Deccan + Oni (mix) = black-white PANDA colour from Deccan Plateau"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Dangi</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Dang district – Maharashtra/Gujarat border (hilly tracts)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Red or black with white patches; or pure white; very patchy coat</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Medium; lateral-horned type; curved outward</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Adapted to hilly terrains; high disease resistance; good for wet, humid conditions</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"DANGI = DANG (hilly area) bull; hardy in hilly forests; colourful patchy coat"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Gaolao</div><div class="breed-aka">Also: Gaoleo</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Wardha, Nagpur, Chhindwara – MP-Maharashtra border</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or light grey; pure white coat typical</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short stumpy; short-horned zebu type</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Good dual-purpose breed of central India; used for heavy farm work</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"GAOLAO = GAO (cow) + LAO (bring) = bring the white dual-purpose cow from Vidarbha"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Mewati</div><div class="breed-aka">Also: Kosi</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Mewat region – Haryana, Rajasthan, UP (Alwar, Bharatpur)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White with grey/black markings on head, neck, shoulders</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short stumpy; short-horned zebu type (short-horned classification)</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">~1050 kg/lactation</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Cross between Hariana and Kankrej types; used in NW India</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MEWATI = MEWAT (Rajasthan-Haryana border) = junction breed of Hariana × Kankrej"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Krishna Valley</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">River Krishna Valley – black soil region of Karnataka; border districts of Maharashtra</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White or grey-white; males darker on forequarters & hindquarters</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short; compact; short-horned zebu type</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">MASSIVE, heavy frame; deep body; tail almost touches ground</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest dual-purpose breed; hybrid origin; loosely built massive body</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"Krishna Valley = KING SIZE body; tail touches ground = TALL and HEAVY"</div>
+      </div>
+    </div>
+
+    <!-- EXOTIC/FOREIGN BREEDS -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>⭐ Foreign / Exotic Breeds (Important for Crossbreeding)</h3></div>
+
+    <div class="breed-card" data-section="cow" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Holstein Friesian</div><div class="breed-aka">Also: HF; Black and White</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Netherlands (Holland/Friesland); now worldwide</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">BLACK and WHITE patches – large, irregular; most recognizable dairy cow</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Short, forward-curving; usually dehorned in commercial farms</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Largest dairy breed; wedge-shaped; excellent udder development</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">6000–9000 kg/lactation; world record ~30,000 kg; 3.5–3.7% fat (low)</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Highest milk-producing breed in the world; used in Frieswal (HF × Sahiwal)</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"HF = Highest Filler; BLACK-WHITE = newspaper print = most FAMOUS worldwide dairy cow"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Jersey</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Isle of Jersey, Channel Islands (UK); one of oldest pure dairy breeds</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Fawn/tan to dark brown; large DEER-like eyes; black muzzle with white ring</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Small, fine; upward curving; usually dehorned</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Smallest dairy breed; very fine, angular; big expressive eyes</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">4000–5000 kg/lactation; 5–6% fat – HIGHEST fat among exotic breeds</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best heat adaptation among exotic; most popular for crossbreeding in India; acclimatized well in hot-humid areas</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"JERSEY = J for JAM (cream-rich); smallest body, HIGHEST fat; deer-eyed beauty"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Brown Swiss</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Switzerland (Alpine region); oldest dairy breed (4000+ years)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Solid brown/grey-brown; lighter muzzle and ears</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">5000–7000 kg/lactation; 4% fat; high protein</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Most sturdy/hardy exotic; good longevity; second highest milk after HF</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"Brown Swiss = Brown SWISS chocolate = steady, old, reliable; mountain hardy breed"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Ayrshire</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Ayr county, Scotland (UK)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Red/cherry-red and white patches; lyre-shaped horns (similar to Tharparkar!)</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">4000–5500 kg/lactation; 4% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Good grazing ability; efficient on poor-quality feed; medium-sized</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"AYRSHIRE = AIR (Scotland hills) = efficient grazer; red-white = Scottish flag colours"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Hereford</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Beef</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Herefordshire, England</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Deep red body with WHITE face, WHITE tail, WHITE underbelly – distinctive</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World's most popular beef breed; docile temperament; good feed conversion</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"HEREFORD = HERE's a WHITE FACE beef bull; red body + white face = classic"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="cow" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Shorthorn</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Northeastern England (Durham, Yorkshire)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Red, white or roan (mixture); variable</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Good dual-purpose breed; milk 3000–4000 kg; beef also good; popular in colonial India</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"SHORT horns = dual purpose moderate; SHORT = both sides moderate"</div>
+      </div>
+    </div>
+
+  </div><!-- end cowGrid -->
+</section>
+
+
+<!-- ═══════════════════════════════════
+     BUFFALO SECTION
+═══════════════════════════════════ -->
+<section id="buffalo">
+  <div class="section-header">
+    <span class="section-icon">🐃</span>
+    <div class="section-title">
+      <h2>Buffalo Breeds</h2>
+      <p>22 registered Indian breeds (ICAR-NBAGR) + Foreign river buffalo breeds · Bubalus bubalis</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">22</div><div class="stat-label">Indian Breeds Registered</div></div>
+    <div class="stat-item"><div class="stat-num">109M</div><div class="stat-label">Buffalo Population India</div></div>
+    <div class="stat-item"><div class="stat-num">57%</div><div class="stat-label">World Buffalo Population in India</div></div>
+    <div class="stat-item"><div class="stat-num">1500–2500</div><div class="stat-label">Murrah Milk (kg/lactation)</div></div>
+  </div>
+
+  <div class="classif-box">
+    <h3>📋 Classification of Indian Buffalo Breeds</h3>
+    <table class="classif-table">
+      <tr><th>Category</th><th>Key Breeds</th><th>Region</th></tr>
+      <tr><td><strong>High Milk (River type)</strong></td><td>Murrah, Nili-Ravi, Surti, Mehsana</td><td>Punjab, Haryana, Gujarat, UP</td></tr>
+      <tr><td><strong>Medium Milk</strong></td><td>Bhadawari, Jafarabadi, Toda, Pandharpuri</td><td>MP, Gujarat, TN, Maharashtra</td></tr>
+      <tr><td><strong>Draught / Dual</strong></td><td>Nagpuri, Marathwadi, Banni, Chilika</td><td>Maharashtra, Odisha, Gujarat</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:0.82rem;color:var(--muted)">🧠 <strong>TRICK – Top Milch Buffaloes:</strong> "<strong>M</strong>y <strong>N</strong>ice <strong>S</strong>urti <strong>M</strong>ilks" → Murrah, Nili-Ravi, Surti, Mehsana</p>
+    <p style="margin-top:4px;font-size:0.82rem;color:var(--muted)">🧠 <strong>Special Fact – Bhadawari:</strong> HIGHEST butterfat % (13%) among all Indian breeds → "Bhadawari = BUTTER queen"</p>
+  </div>
+
+  <div class="class-tabs" id="buffaloTabs">
+    <div class="class-tab active" onclick="filterBreeds('buffalo','all',this)">All Breeds</div>
+    <div class="class-tab" onclick="filterBreeds('buffalo','milch',this)">🟢 High Milk</div>
+    <div class="class-tab" onclick="filterBreeds('buffalo','dual',this)">🔵 Dual/Draught</div>
+    <div class="class-tab" onclick="filterBreeds('buffalo','exotic',this)">⭐ Foreign</div>
+  </div>
+
+  <div class="breed-grid" id="buffaloGrid">
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Murrah</div><div class="breed-aka">Also: Kali, Delhi buffalo</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Hisar, Rohtak – Haryana; Delhi; parts of Punjab, UP</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Jet black; white markings on face and legs sometimes</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">🌀 TIGHTLY CURLED (coiled/spiral) = "Kundlini horns" – most distinctive feature</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Heavy; well-developed udder; large funnel-shaped teats; prominent milk vein</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1500–2500 kg/lactation; 6–9% fat; ICAR maintains pedigree records</span></div>
+        <div class="info-row"><span class="info-label">Age 1st Calving</span><span class="info-val">36–40 months; Heritability 0.2–0.3</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">BEST milch buffalo in world; maximum lactation yield; used to improve other breeds</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MURRAH = MURRA (murder/champion) → World's BEST buffalo. SPIRAL/COIL horns = MURR-ahi"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Nili-Ravi</div><div class="breed-aka">Also: Nili; Pancha Kalyani</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Sutlej Valley, Ferozepur – Punjab; Sahiwal region (Pakistan)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Jet black; WHITE markings on forehead, face, limbs and tail</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Small 'J'-shaped; tightly coiled with HIGH coil (like Murrah but smaller)</span></div>
+        <div class="info-row"><span class="info-label">Special</span><span class="info-val">🌟 WALL EYES (light-coloured/whitish eyes) – Pancha Kalyani = 5 white marks</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1500–1850 kg/lactation; 6.5–7.5% fat; MINIMUM fat among top milch buffaloes</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best economic milk producer; bullocks best for heavy trotting; 2nd after Murrah; tail almost touches ground</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NILI = NILE (river) = flowing tail almost touches ground; WALL EYES = ghost white eyes; Pancha = 5 white marks"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Surti</div><div class="breed-aka">Also: Deshi, Talabda, Nadiadi</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Surat, Vadodara – Gujarat</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Rusty brown/black; TWO white "chevron" marks on neck (V-shape)</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Sickle-shaped; curved backward; medium length</span></div>
+        <div class="info-row"><span class="info-label">Special</span><span class="info-val">Copper-coloured eyelids; wall eyes in some animals</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1200–1600 kg/lactation; 7.5–8% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Two white chevrons on neck are diagnostic; good fat%; medium sized</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"SURTI = SURAT ki necklace = TWO white chevron lines like a necklace on the neck"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Mehsana</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Mehsana, Sabarkantha, Banaskantha – Gujarat; parts of Maharashtra</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black or dark brown; less uniform than Murrah</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Sickle-shaped; less curved than Murrah; between Murrah and Surti types</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1800–2500 kg/lactation; 7% fat; SUPERIOR to Murrah in some herds</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Developed from Surti × Murrah cross; often outperforms Murrah in Gujarat; called "Gujarat's Murrah"</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MEHSANA = Mehsana, Gujarat = More milk than expected; CROSS of Murrah + Surti"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Bhadawari</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Agra, Etawah – UP; Gwalior – MP</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Copper or light brown; legs copper-coloured; TWO white chevrons on neck (like Surti)</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Curved upward and inward; medium</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">800–1000 kg/lactation; 🌟 HIGHEST BUTTERFAT 12–13% (world record for any breed)</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">GHEE production buffalo; highest fat% in world; thrives in hot climates with poor fodder</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BHADAWARI = BUTTER QUEEN; 13% fat = THIRTEEN spoons of ghee; copper colour like ghee"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Toda</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Nilgiri Hills – Tamil Nadu (kept by Toda tribal community)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Dark black; massive body; long shaggy hair coat</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Thick, sweeping outward; medium length</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">500–700 kg/lactation; 8% fat; used in religious rituals of Toda tribe</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Sacred to Toda tribe; religious/cultural significance; NOT commercial; endangered</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"TODA = Toda TRIBAL buffalo = Nilgiri hills sacred animal; shaggy like a mountain buffalo"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Jafarabadi</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-draft">Draught</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Gir forest, Jaffarabad – Junagadh, Gujarat (Maldhari nomads)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Jet black; large massive frame</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">⬇️ HEAVY, DROOPING horns curving DOWN along neck, then turning up at tips</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1000–1200 kg/lactation; 8–10% fat; bullocks for heavy ploughing</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">HEAVIEST Indian buffalo breed; drooping horns = diagnostic; Maldhari herders keep it</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"JAFAR = JAFAR (villain) = heavy dark buffalo with drooping horns = massive scary horns pointing DOWN"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Nagpuri</div><div class="breed-aka">Also: Elitchi, Berari, Varhadi</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Nagpur, Wardha, Yavatmal – Vidarbha, Maharashtra</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black with white patches on face, legs and tail</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Long, flat horns sweeping BACKWARD – screw/flat type; most distinctive</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">800–1000 kg/lactation; 6.8% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Screw-type flat horns bending backward are diagnostic; dual purpose Vidarbha</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NAGPURI = NAGPUR orange = flat screw horns like orange peel curving backward"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Pandharpuri</div><div class="breed-aka">Also: Dharwari</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Solapur, Kolhapur, Sangli – Maharashtra</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black; sparse hair coat</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">EXTREMELY LONG horns – up to 1.5 metres; curving BACKWARD – most dramatic</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1000–1500 kg/lactation; 7–8% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Longest horns of any Indian buffalo; heat tolerant; survives on poor fodder</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"PANDHARPURI = PANDHARPUR (pilgrimage) = LONG horns like a temple flag staff; 1.5m long!"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Banni</div><div class="breed-aka">Also: Kutchi, Kundi (India type)</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Banni Grasslands, Kutch – Gujarat (Maldhari pastoralists)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black with white markings; compact structure</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Medium; moderately curled</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1500–2500 kg/lactation; 7–8% fat; CAN BE MILKED TWICE/DAY in extreme heat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Night-time milking habit; extreme heat/desert tolerance; recognized 2010 by NBAGR</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BANNI = BAAN (arrow) = survives the arrows of heat; night milker of Kutch desert"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="buffalo" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Italian Mediterranean Buffalo</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milch</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Campania region, Italy (derived from Indian river buffalo brought centuries ago)</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World-famous for Mozzarella di Bufala cheese; 2500–3000 kg milk; 8% fat</span></div>
+        <div class="info-row"><span class="info-label">Importance</span><span class="info-val">Used in crossbreeding programs; studied for cheese production in India</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"Italian Buffalo = MOZZARELLA maker; pizza cheese connection"</div>
+      </div>
+    </div>
+
+  </div><!-- end buffaloGrid -->
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SHEEP SECTION
+═══════════════════════════════════ -->
+<section id="sheep">
+  <div class="section-header">
+    <span class="section-icon">🐑</span>
+    <div class="section-title">
+      <h2>Sheep Breeds</h2>
+      <p>46 registered Indian breeds (ICAR-NBAGR) + Important Foreign breeds · Ovis aries</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">46</div><div class="stat-label">Indian Breeds Registered</div></div>
+    <div class="stat-item"><div class="stat-num">74M</div><div class="stat-label">Sheep Population (2019)</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Wool Type Categories</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Agro-Ecological Regions</div></div>
+  </div>
+
+  <div class="classif-box">
+    <h3>📋 Classification of Indian Sheep Breeds</h3>
+    <table class="classif-table">
+      <tr><th>Product Type</th><th>Key Breeds</th><th>Notes</th></tr>
+      <tr><td><strong>Apparel Wool</strong></td><td>Nilgiri, Rampur Bushair, Kashmir Merino</td><td>Fine/soft wool; high value</td></tr>
+      <tr><td><strong>Carpet Wool</strong></td><td>Bikaneri (Chokla), Nali, Marwari, Jaisalmeri</td><td>Coarse long fibre; Rajasthan dominant</td></tr>
+      <tr><td><strong>Meat + Carpet Wool</strong></td><td>Deccani, Bellary, Mandya, Hassan</td><td>South India breeds</td></tr>
+      <tr><td><strong>Meat Type</strong></td><td>Garole, Muzaffarnagri, Malpura, Patanwadi</td><td>High prolificacy; fecundity</td></tr>
+      <tr><td><strong>Pashmina</strong></td><td>Changthangi (Ladakh)</td><td>Ultra-fine cashmere-type fibre</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:0.82rem;color:var(--muted)">🧠 <strong>Regional classification:</strong> 4 zones → Southern Peninsular | Northern Plains | Eastern Himalayas | Northwestern Arid</p>
+  </div>
+
+  <div class="class-tabs" id="sheepTabs">
+    <div class="class-tab active" onclick="filterBreeds('sheep','all',this)">All Breeds</div>
+    <div class="class-tab" onclick="filterBreeds('sheep','wool',this)">🟡 Wool</div>
+    <div class="class-tab" onclick="filterBreeds('sheep','meat',this)">🔴 Meat</div>
+    <div class="class-tab" onclick="filterBreeds('sheep','dual',this)">🔵 Dual</div>
+    <div class="class-tab" onclick="filterBreeds('sheep','exotic',this)">⭐ Foreign</div>
+  </div>
+
+  <div class="breed-grid" id="sheepGrid">
+
+    <!-- WOOL BREEDS -->
+    <div class="sub-section" style="grid-column:1/-1"><h3>🟡 Wool Breeds</h3></div>
+
+    <div class="breed-card" data-section="sheep" data-cat="wool">
+      <div class="card-header">
+        <div><div class="breed-name">Chokla</div><div class="breed-aka">Also: Bikaneri, Shekhawati, Chokra</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Carpet Wool</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Churu, Sikar, Jhunjhunu – Rajasthan (Shekhawati region)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White body; brown/black markings on head and ears</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Both sexes mostly polled; some rams horned</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">1.5–2 kg fleece/year; fine carpet wool; staple 7–9 cm</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">FINEST carpet wool sheep of India; "Merino of India" for carpet wool</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CHOKLA = CHO (finest) + KLA = finest carpet wool; Shekhawati = Rajasthan's carpet capital"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="wool">
+      <div class="card-header">
+        <div><div class="breed-name">Nali</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Carpet Wool</span><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Nagaur, Jodhpur, Churu – Rajasthan; Haryana</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; both sexes polled (NO HORNS)</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Large, compact; open face; long ears</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">2–3 kg/year; long staple carpet wool (10–12 cm)</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">LARGEST carpet wool sheep of India; long staple; both sexes polled = diagnostic</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NALI = NALA (long tube) = LONG staple wool; large sheep = NALI BADI (Nali is big)"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="wool">
+      <div class="card-header">
+        <div><div class="breed-name">Jaisalmeri</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Carpet Wool</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Jaisalmer, Barmer – Rajasthan (Thar Desert)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; some brown/black patches on face</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Medium-large; long ears; typical desert adaptation</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">2–3 kg/year; coarse long fibre; excellent for carpet making</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Desert-adapted; survives in extreme heat; important for desert economy</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"JAISALMERI = JAISALMER fort = GOLDEN desert sheep; wool like desert sand"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="wool">
+      <div class="card-header">
+        <div><div class="breed-name">Changthangi</div><div class="breed-aka">Also: Changpa, Ladakh Pashmina</div></div>
+        <div class="card-badges"><span class="badge badge-fiber">Pashmina</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Changthang plateau, Ladakh (kept by Changpa nomads; altitude 4000–5000m)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White, grey or black; long shaggy outer hair with fine undercoat</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Present in both sexes (rams have large spiralling horns)</span></div>
+        <div class="info-row"><span class="info-label">Fibre</span><span class="info-val">Pashmina fibre 12–15 microns; 100–200 g/animal/year; ultra-fine cashmere</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Source of famous Kashmir Pashmina shawls; extremely high altitude; endangered</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CHANGTHANGI = CHANG (highland) + THANGI = high altitude luxury fibre; Pashmina = POSH MINA (posh fibre)"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="wool">
+      <div class="card-header">
+        <div><div class="breed-name">Rampur Bushair</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Apparel Wool</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Rampur, Shimla – Himachal Pradesh; Uttarakhand hills</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Dark brown or grey-brown; light tan to coconut coloured</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Medium-large; hill-adapted; tail is very LONG reaching to fetlock joint</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">Apparel wool; fine fibres; 1.5 kg/year; used for traditional Himachali garments</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest among Kashmir sheep breeds; ewes are good milkers; long tail = diagnostic</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"RAMPUR BUSHAIR = RAM + BUSH (mountain bush) = hill apparel wool; LONG tail drags in bush"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="wool">
+      <div class="card-header">
+        <div><div class="breed-name">Nilgiri</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Apparel Wool</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Nilgiri Hills – Tamil Nadu (high altitude 1500–2500m)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Predominantly white; compact fleece</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">Fine apparel wool; 1.5–2 kg/year; ONLY breed producing apparel wool in South India</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Only South Indian sheep producing fine apparel (clothing quality) wool; high altitude adapted</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NILGIRI = NIL (blue) + GIRI (hill) = blue hill fine wool; ONLY south Indian apparel wool breed"</div>
+      </div>
+    </div>
+
+    <!-- MEAT BREEDS -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🔴 Meat Breeds</h3></div>
+
+    <div class="breed-card" data-section="sheep" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Garole</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Sundarban mangrove region – West Bengal; also Bangladesh</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Mostly black or dark; small compact body</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">SMALLEST sheep breed of India; both sexes polled</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">MOST PROLIFIC sheep breed of India – twin/triplet births common; FecB gene carrier; mangrove adapted</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"GAROLE = GAR (home) OLE = MOST prolific; SMALL body BIG litter; Sundarbans tiger neighbour"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Muzaffarnagri</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Muzaffarnagar, Meerut, Bulandshahr – Western UP</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; brown/black spots on face and ears; large frame</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">TALLEST sheep breed of India; males well-built; heavy</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Tallest Indian sheep; best MUTTON breed of India; high body weight</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MUZAFFARNAGRI = MAZA (heavy) = TALLEST; BEST mutton from UP; imagine tall Muzaffar eating mutton"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Mandya</div><div class="breed-aka">Also: Bandur</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Mandya district – Karnataka</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; compact body; typical reverse "U" shaped from rear end</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Compact, meaty body; both sexes polled; short legs; small ears</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">"Goat-like sheep" – compact body; good mutton quality; reverse U-shape diagnostic</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MANDYA = MAN-DYA (give flesh) = compact meaty body; reverse-U shape = 'U' for UNIQUE shape"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Bellary</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-wool">Coarse Wool</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Bellary, Raichur – Karnataka-AP border</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; both sexes polled; medium-large size</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Most populous sheep of Karnataka; good meat and coarse wool; well adapted to hot Deccan climate</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BELLARY = BELL ring = most common/popular sheep in Karnataka; rings the bell for numbers"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Deccani</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Deccan Plateau – Maharashtra, Telangana, Karnataka, AP</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black; mixed black/brown body; compact</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Hardiest sheep of India; survives on minimum feed; black coloured; Deccan Plateau adapted</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"DECCANI = DARK Deccan = BLACK sheep of Deccan; tough like the rocky Deccan plateau"</div>
+      </div>
+    </div>
+
+    <!-- DUAL -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🔵 Dual Purpose Sheep</h3></div>
+
+    <div class="breed-card" data-section="sheep" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Malpura</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-wool">Wool</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Tonk, Sirohi, Jaipur – Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; tan or reddish-tan patches on nose and ears; males sometimes horned</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Semi-arid adapted; medium size; dual wool + meat; prominent Rajasthan breed</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MALPURA = MAL (goods) + PURA (full) = gives BOTH wool and meat; Rajasthan dual"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Marwari</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Carpet Wool</span><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Jodhpur, Barmer, Jaisalmer – Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White with black head; or mixed; black ears and face typical</span></div>
+        <div class="info-row"><span class="info-label">Horns</span><span class="info-val">Rams have long twisted horns; ewes polled</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Very good climber; sturdy; desert-adapted; rams are known fighters; coarse carpet wool</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MARWARI = MARWAR (western Rajasthan) = warrior sheep; fighting rams + twisted horns"</div>
+      </div>
+    </div>
+
+    <!-- EXOTIC SHEEP -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>⭐ Foreign Sheep Breeds</h3></div>
+
+    <div class="breed-card" data-section="sheep" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Merino</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Fine Wool</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Spain (Merino sheep); now Australia is world's largest Merino country</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White; wrinkled skin; heavy fleece covering entire body</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">FINEST wool in world; 14–24 microns; 4–6 kg/year; luxury apparel wool</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World's #1 wool sheep; used to improve Indian wool breeds; Australia's Kashmir Merino popular</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MERINO = ME-RINO (my fleece) = wrinkled white sheep with MOST wool in world"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Corriedale</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Fine Wool</span><span class="badge badge-meat">Meat</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">New Zealand (Merino × Lincoln cross; developed in Corriedale estate)</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">Medium-fine (26–30 microns); 4–5 kg/year; dual purpose</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Body weight 80–90 kg; good dual purpose; used extensively to upgrade Indian sheep wool quality</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CORRIEDALE = CORRECT + DALE (valley) = correct balance of wool + meat; NZ valley sheep"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Rambouillet</div></div>
+        <div class="card-badges"><span class="badge badge-wool">Fine Wool</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">France (descendant of Spanish Merino; developed at Rambouillet National farm)</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">LARGEST fine-wool sheep; body weight 80–90 kg (M), 55–70 kg (F)</span></div>
+        <div class="info-row"><span class="info-label">Wool</span><span class="info-val">Fine wool (20–24 microns); 4–6 kg/year; used in Indian sheep improvement</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Used to upgrade Chokla and Nali; bred at National Research Centre on Sheep, Avikanagar</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"RAMBOUILLET = RAM + BOUILLET (French chef) = French refined big Merino; luxury French wool"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="sheep" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Suffolk</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Suffolk county, England (Southdown × Norfolk Horn cross)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White body; BLACK face, BLACK legs – most distinctive; hornless</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World's best mutton breed; fast growing; used to upgrade Indian meat sheep; early maturing</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"SUFFOLK = SUF (suf = white) + FOLK with BLACK face = black face white body = easy to remember"</div>
+      </div>
+    </div>
+
+  </div><!-- end sheepGrid -->
+</section>
+
+
+<!-- ═══════════════════════════════════
+     GOAT SECTION
+═══════════════════════════════════ -->
+<section id="goat">
+  <div class="section-header">
+    <span class="section-icon">🐐</span>
+    <div class="section-title">
+      <h2>Goat Breeds</h2>
+      <p>43 registered Indian breeds (ICAR-NBAGR) + Important Foreign breeds · Capra hircus</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">43</div><div class="stat-label">Indian Breeds Registered</div></div>
+    <div class="stat-item"><div class="stat-num">148M</div><div class="stat-label">Goat Population India (2019)</div></div>
+    <div class="stat-item"><div class="stat-num">#1</div><div class="stat-label">Rajasthan – Highest Goat Population</div></div>
+    <div class="stat-item"><div class="stat-num">27.7%</div><div class="stat-label">Share of Total Livestock Population</div></div>
+  </div>
+
+  <div class="classif-box">
+    <h3>📋 Classification of Indian Goat Breeds</h3>
+    <table class="classif-table">
+      <tr><th>Purpose</th><th>Key Breeds</th><th>Notes</th></tr>
+      <tr><td><strong>Milk (Dairy)</strong></td><td>Jamunapari, Beetal, Sirohi, Jakhrana, Surti, Malabari</td><td>High milk; good udder development</td></tr>
+      <tr><td><strong>Meat (Chevon)</strong></td><td>Black Bengal, Osmanabadi, Sangamneri, Barbari</td><td>High prolificacy; good dressing %</td></tr>
+      <tr><td><strong>Pashmina/Fibre</strong></td><td>Changthangi, Chegu, Gaddi</td><td>High altitude breeds; fine undercoat</td></tr>
+      <tr><td><strong>Dual Purpose</strong></td><td>Kanni Adu, Ganjam, Gohilwadi, Mehsani</td><td>Milk + meat</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:0.82rem;color:var(--muted)">🧠 <strong>TRICK – Milch Goats:</strong> "JB SJM" → Jamunapari, Beetal, Sirohi, Jakhrana, Malabari</p>
+  </div>
+
+  <div class="class-tabs" id="goatTabs">
+    <div class="class-tab active" onclick="filterBreeds('goat','all',this)">All Breeds</div>
+    <div class="class-tab" onclick="filterBreeds('goat','milch',this)">🟢 Milk</div>
+    <div class="class-tab" onclick="filterBreeds('goat','meat',this)">🔴 Meat</div>
+    <div class="class-tab" onclick="filterBreeds('goat','fiber',this)">🟣 Pashmina</div>
+    <div class="class-tab" onclick="filterBreeds('goat','dual',this)">🔵 Dual</div>
+    <div class="class-tab" onclick="filterBreeds('goat','exotic',this)">⭐ Foreign</div>
+  </div>
+
+  <div class="breed-grid" id="goatGrid">
+
+    <!-- MILK -->
+    <div class="sub-section" style="grid-column:1/-1"><h3>🟢 Milk Goat Breeds</h3></div>
+
+    <div class="breed-card" data-section="goat" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Jamunapari</div><div class="breed-aka">Also: Pari</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milk</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Etawah – between Jamuna & Chambal rivers, UP</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White with brown patches on neck/head; or pure white; sometimes brown/black</span></div>
+        <div class="info-row"><span class="info-label">Ears</span><span class="info-val">VERY LONG, pendulous, LEAF-shaped drooping ears (30+ cm) – diagnostic</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">TALLEST Indian goat breed; long legs; Roman nose (convex profile); both sexes bearded</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1.5–2.5 liters/day; 3.5–5% fat; long lactation</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Parent of Boer goat improvement globally; influenced Nubian breed; most elegant Indian goat</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"JAMUNAPARI = JAMUNA (river) + PARI (fairy) = elegant TALL fairy goat with long LEAF ears; tallest of all"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Beetal</div><div class="breed-aka">Also: Amritsar, Lahori</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milk</span><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Gurdaspur, Amritsar – Punjab; Lahore (Pakistan)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Brown/reddish with white spots; or solid black with white spots; broken coloured</span></div>
+        <div class="info-row"><span class="info-label">Ears</span><span class="info-val">Long pendulous ears; twisted and drooping</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Large, well-built; Roman nose; similar to Jamunapari but stockier</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">2–3 liters/day; 4.5–5% fat; one of highest milk goats</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Punjab's most popular goat; very high milk for a goat; often confused with Jamunapari</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BEETAL = BEETLE (big, strong) = big Punjab milch goat; stockier than Jamunapari"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Jakhrana</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milk</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Jakhrana village, Behror – Alwar, Rajasthan</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black body with WHITE spots on ears and muzzle – very diagnostic</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Large frame; long pendulous ears; well-developed udder</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">2–3 liters/day; excellent milk production for Indian goat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best milch goat of Rajasthan; black with white ear/muzzle spots are unique identification marks</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"JAKHRANA = JAK (black jack) = BLACK body with WHITE ear dots like Jack of spades playing card"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="milch">
+      <div class="card-header">
+        <div><div class="breed-name">Malabari</div><div class="breed-aka">Also: Tellicherry, Vadakara</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milk</span><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Malabar coast – Kozhikode, Malappuram, Kannur – Kerala</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Brown, black, or white; mixed colours common; short hair</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Medium size; compact; well-adapted to humid coastal Kerala climate</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1.5–2 liters/day; most productive goat of South India</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best milch goat of South India; popular Kerala breed; dual purpose with good meat</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MALABARI = MALABAR coast (Kerala) + ARI = coastal goat = South India's best milker"</div>
+      </div>
+    </div>
+
+    <!-- MEAT -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🔴 Meat Goat Breeds</h3></div>
+
+    <div class="breed-card" data-section="goat" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Black Bengal</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">West Bengal, Bangladesh, Jharkhand, Assam, Bihar</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Predominantly BLACK; short hair; compact small body</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Small, compact; short legs; males horned, females often polled</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Best skin quality goat (finest leather); highest dressing%; highly prolific (2–3 kids); fastest growing meat goat</span></div>
+        <div class="info-row"><span class="info-label">Awards</span><span class="info-val">Won World Bank best goat award for skin quality</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BLACK Bengal = BLACK leather from Bengal = World's BEST goat skin; small black, TRIPLE kids"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Osmanabadi</div><div class="breed-aka">Also: Deccan</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Osmanabad, Latur, Solapur – Marathwada, Maharashtra</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Black; or black with white patches; brown also seen</span></div>
+        <div class="info-row"><span class="info-label">Ears</span><span class="info-val">Medium pendulous ears; twisted type</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">~1 liter/day; primarily meat breed</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest meat goat of Maharashtra; good heat tolerance; dual purpose with some milk</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"OSMANABADI = OSMAN (ottoman warrior) = big, black, meat warrior of Maharashtra"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Barbari</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-milch">Milk</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Agra, Mathura, Delhi, Karnal – Urban areas of UP/Haryana; Barbera, Somalia (original)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White with brown patches of varying size; short hair; compact</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Short-haired; compact; popularly kept in urban/semi-urban areas</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">1–1.5 liters/day; 5% fat; prolific breeders (twins common)</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Most urban goat in India; good for backyard rearing; high prolificacy</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BARBARI = BARBAR (city/urban) = urban desi goat; white-brown patches like urban spots of city"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Sangamneri</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Sangamner, Ahmednagar – Maharashtra</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White with black or brown patches; small-medium size</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Good meat goat of Maharashtra; popular in Deccan; drought tolerant; ICAR developed improved Sangamneri strain</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"SANGAMNERI = SANGAM (confluence of rivers) = confluence of Maharashtra meat flavour"</div>
+      </div>
+    </div>
+
+    <!-- PASHMINA -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🟣 Pashmina / Fibre Goats</h3></div>
+
+    <div class="breed-card" data-section="goat" data-cat="fiber">
+      <div class="card-header">
+        <div><div class="breed-name">Changthangi (Goat)</div><div class="breed-aka">Also: Changpa, Kashmir Pashmina</div></div>
+        <div class="card-badges"><span class="badge badge-fiber">Pashmina</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Changthang, Ladakh (4500m altitude; -40°C winters)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White, grey, brown, or black; thick shaggy outer coat; fine undercoat</span></div>
+        <div class="info-row"><span class="info-label">Fibre</span><span class="info-val">12–15 micron Pashmina; 100–250 g/animal/year; combed not shorn</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World-famous Kashmir Pashmina shawl source; GI tag protected; nomadic Changpa keep them</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CHANGTHANGI GOAT = CHANGE (shawl change) = Kashmir PASHMINA shawl source goat; -40°C winter coat"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="fiber">
+      <div class="card-header">
+        <div><div class="breed-name">Chegu</div><div class="breed-aka">Also: Chigu, Rampur Bushair goat</div></div>
+        <div class="card-badges"><span class="badge badge-fiber">Pashmina</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Spiti, Kinnaur, Lahul – Himachal Pradesh (high Himalayan valleys)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White/greyish; long shaggy outer hair; fine undercoat pashmina</span></div>
+        <div class="info-row"><span class="info-label">Fibre</span><span class="info-val">Pashmina/cashmere fibre; slightly coarser than Changthangi; used as pack animal also</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Used for carrying salt and goods in addition to fibre production; multi-utility</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CHEGU = CARRY + GO = carries goods AND gives Pashmina; high Himachal altitude goat"</div>
+      </div>
+    </div>
+
+    <!-- EXOTIC GOATS -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>⭐ Foreign Goat Breeds</h3></div>
+
+    <div class="breed-card" data-section="goat" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Saanen</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milk</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Saanen Valley, Bernese Oberland – Switzerland</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Pure WHITE; pink skin; short erect ears; usually polled</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">3–4 liters/day; HIGHEST milk producing goat in world; 3.5% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World's #1 dairy goat; "Holstein of goats"; used in crossbreeding programs in India</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"SAANEN = SAAN (clean white Swiss) = white Swiss CREAM goat; world's HIGHEST milk goat"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Alpine</div><div class="breed-aka">Also: French Alpine</div></div>
+        <div class="card-badges"><span class="badge badge-milch">Milk</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">French Alps; Switzerland</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Varied – tan, black, grey, chamoisee; erect ears; usually polled</span></div>
+        <div class="info-row"><span class="info-label">Milk</span><span class="info-val">3–3.5 liters/day; good milk production; 3.5% fat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Hardy mountain goat; adaptable; good dairy performance; imported to India for crossbreeding</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"ALPINE = ALPS mountain = colorful mountain climber goat; varied colours like mountain wildflowers"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Boer</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">South Africa (Boer = Dutch/Afrikaans for "farmer")</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">White body with RED/brown head and neck; floppy ears; short hair</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World's #1 meat goat; 50+ kg body weight; fast-growing; imported for crossing with Indian goats</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BOER = BORE (bore into meat market) = world's best MEAT goat; white body red head = South African flag colours"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="goat" data-cat="exotic">
+      <div class="card-header">
+        <div><div class="breed-name">Angora</div></div>
+        <div class="card-badges"><span class="badge badge-fiber">Mohair</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Ankara (Angora), Turkey</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Pure white; entirely covered with long lustrous silky ringlets (mohair)</span></div>
+        <div class="info-row"><span class="info-label">Fibre</span><span class="info-val">Mohair fibre; 3–5 kg/year; lustrous, strong; shorn twice/year</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World's only mohair-producing goat; ICAR imported to improve Indian fibre goats</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"ANGORA = ANG (ornament) = ornamental silky ringlet goat; MOHAIR = Most Ornamental HAIRy goat"</div>
+      </div>
+    </div>
+
+  </div><!-- end goatGrid -->
+</section>
+
+
+<!-- ═══════════════════════════════════
+     CHICKEN SECTION
+═══════════════════════════════════ -->
+<section id="chicken">
+  <div class="section-header">
+    <span class="section-icon">🐓</span>
+    <div class="section-title">
+      <h2>Poultry (Chicken) Breeds</h2>
+      <p>21 registered Indian breeds (ICAR-NBAGR) + Commercial Exotic breeds · Gallus gallus domesticus</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">21</div><div class="stat-label">Indian Breeds Registered</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Pure Indian Breeds</div></div>
+    <div class="stat-item"><div class="stat-num">41B</div><div class="stat-label">Eggs Annual (India)</div></div>
+    <div class="stat-item"><div class="stat-num">#4</div><div class="stat-label">Egg Producer Globally</div></div>
+    <div class="stat-item"><div class="stat-num">#5</div><div class="stat-label">Broiler Producer Globally</div></div>
+  </div>
+
+  <div class="classif-box">
+    <h3>📋 Classification of Chicken Breeds</h3>
+    <table class="classif-table">
+      <tr><th>Basis</th><th>Category</th><th>Examples</th></tr>
+      <tr><td rowspan="6"><strong>By Utility</strong></td><td>Egg type (Layer)</td><td>White Leghorn, Minorca, Ancona</td></tr>
+      <tr><td>Meat type (Broiler)</td><td>Cornish, Plymouth Rock, Brahma</td></tr>
+      <tr><td>Dual Purpose</td><td>Rhode Island Red, New Hampshire</td></tr>
+      <tr><td>Game Bird</td><td>Aseel (Indian fighter)</td></tr>
+      <tr><td>Desi/Indigenous</td><td>Kadaknath, Chittagong, Busra</td></tr>
+      <tr><td>Fancy/Ornamental</td><td>Silkie, Frizzle, Bantam</td></tr>
+      <tr><td rowspan="4"><strong>By Class</strong></td><td>American Class</td><td>RIR, Plymouth Rock, New Hampshire, Wyandotte</td></tr>
+      <tr><td>Mediterranean Class</td><td>White Leghorn, Minorca, Ancona</td></tr>
+      <tr><td>English Class</td><td>Australorp, Sussex, Cornish</td></tr>
+      <tr><td>Asiatic Class</td><td>Brahma, Cochin, Langshan</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:0.82rem;color:var(--muted)">🧠 <strong>4 Pure Indian Breeds:</strong> "<strong>A</strong>seel <strong>C</strong>an <strong>B</strong>e <strong>K</strong>ing" → Aseel, Chittagong, Busra, Kadaknath</p>
+  </div>
+
+  <div class="class-tabs" id="chickenTabs">
+    <div class="class-tab active" onclick="filterBreeds('chicken','all',this)">All Breeds</div>
+    <div class="class-tab" onclick="filterBreeds('chicken','meat',this)">🔴 Meat/Broiler</div>
+    <div class="class-tab" onclick="filterBreeds('chicken','egg',this)">🟡 Egg/Layer</div>
+    <div class="class-tab" onclick="filterBreeds('chicken','dual',this)">🔵 Dual Purpose</div>
+    <div class="class-tab" onclick="filterBreeds('chicken','game',this)">🟠 Game/Desi</div>
+    <div class="class-tab" onclick="filterBreeds('chicken','exotic',this)">⭐ Commercial Exotic</div>
+  </div>
+
+  <div class="breed-grid" id="chickenGrid">
+
+    <!-- DESI / GAME / INDIGENOUS -->
+    <div class="sub-section" style="grid-column:1/-1"><h3>🟠 Pure Indian / Indigenous Breeds (4 Pure + Others)</h3></div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Aseel</div><div class="breed-aka">Also: Asil; varieties – Peela, Yakub, Nuri, Kagar</div></div>
+        <div class="card-badges"><span class="badge badge-game">Game</span><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Andhra Pradesh, Chhattisgarh; South Asia – ancient breed</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">Varied – red, black, white, black & white (Chitta), Java black; multi-colour varieties</span></div>
+        <div class="info-row"><span class="info-label">Comb</span><span class="info-val">🟡 PEA COMB – most distinctive; small, flat three-ridged comb</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">Muscular; long neck; strong legs; upright posture; aggressive nature</span></div>
+        <div class="info-row"><span class="info-label">Production</span><span class="info-val">Eggs: 30–40/year; Body weight: 3–5 kg (male); excellent meat quality</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">OLDEST known pure Indian breed; used in Jallikattu-type fights; genetic base for broiler improvement; PUGNACIOUS temperament</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"ASEEL = ASAL (real/pure) = REAL oldest Indian fighter; PEA comb (small) = peaceful look but FIGHTER heart"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Kadaknath</div><div class="breed-aka">Also: Kali Masi, Kalamasi</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-game">Desi</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Jhabua, Dhar – Madhya Pradesh (tribal Bhil/Bhilala communities)</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">⬛ JET BLACK everything – feathers, beak, tongue, comb, wattles, feet, flesh, blood, bones!</span></div>
+        <div class="info-row"><span class="info-label">Nutrition</span><span class="info-val">Meat: 25–26% protein, only 1% fat; 18 amino acids; high iron, zinc; medicinal</span></div>
+        <div class="info-row"><span class="info-label">Production</span><span class="info-val">70–80 eggs/year (black-grey eggs); body weight 1–1.5 kg (small)</span></div>
+        <div class="info-row"><span class="info-label">GI Tag</span><span class="info-val">GI tag from Madhya Pradesh; expensive premium meat (Rs 500–1000/kg)</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">ENTIRE body is BLACK; high medicinal value; treats conditions like asthma, chronic headache, nerve issues</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"KADAKNATH = KAD (black) + NAK (nose) = BLACK NOSE + BLACK EVERYTHING; like Batman of poultry"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Chittagong</div><div class="breed-aka">Also: Malay type</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-game">Desi</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">West Bengal (originally Chittagong, Bangladesh)</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">Black, white, golden/buff; tall stature; long legs</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">TALLEST pure Indian breed; Malay-type body (upright, tall); small comb</span></div>
+        <div class="info-row"><span class="info-label">Production</span><span class="info-val">60–80 eggs/year; large body weight; valued for meat</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">One of the ancestors of modern broiler breeds; tall upright posture diagnostic</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CHITTAGONG = CHIT (tall) + AGONG (tower) = TALLEST Indian chicken; Bangladesh-Bengal origin"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Busra</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-game">Desi</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Maharashtra, Gujarat (western India)</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">Mixed colours; medium sized; hardy</span></div>
+        <div class="info-row"><span class="info-label">Production</span><span class="info-val">80–100 eggs/year; good forager; backyard poultry</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">One of only 4 pure Indian breeds; lesser-known; hardy for backyard; Maharashtra-Gujarat origin</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BUSRA = BUSY + RA = always BUSY foraging; 4th pure Indian breed (the forgotten one)"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Naked Neck</div><div class="breed-aka">Also: Turken</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-game">Desi</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Widespread in India, Southeast Asia; thought to have originated Eastern Europe/Asia</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">🦃 NAKED NECK – completely featherless neck (looks like turkey); body feathered</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">BEST heat-tolerant Indian chicken; NA gene (Naked Neck) is dominant; free-range adapted; good forager</span></div>
+        <div class="info-row"><span class="info-label">Trait</span><span class="info-val">Less feathers = less heat stress; less feed needed for feather growth</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NAKED NECK = neck without scarf = HEAT tolerant; no feathers on neck = stays COOL in hot India"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Nicobari</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-game">Desi</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Nicobar Islands – Andaman & Nicobar Islands</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">Variety of colours; medium sized; island-adapted</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Island breed; well-adapted to tropical humid island climate; distinct gene pool; conservation important</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NICOBARI = NICOBAR island chicken = island survivor; unique island gene pool"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Harringhata Black</div><div class="breed-aka">Also: Haringhata Black</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Harringhata – West Bengal</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">Black plumage; medium sized</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Developed at West Bengal farm; adapted to local climate; valued for flavourful meat quality; conservation breed</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"HARRINGHATA BLACK = Harringhata farm + BLACK = Bengal's black chicken; WB's Kadaknath cousin"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="game">
+      <div class="card-header">
+        <div><div class="breed-name">Ghagus</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-game">Desi</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Karnataka (prevalent breed of Southern Karnataka)</span></div>
+        <div class="info-row"><span class="info-label">Plumage</span><span class="info-val">Mixed colours; medium-compact; alert temperament</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Well-adapted to free-range backyard in Karnataka; good forager; disease resistant</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"GHAGUS = GHA-GUS (Karnataka's local name) = Karnataka's desi chicken"</div>
+      </div>
+    </div>
+
+    <!-- ICAR IMPROVED VARIETIES -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>🔬 ICAR-Developed Improved Varieties (Synthetic/Crossbred)</h3></div>
+
+    <div class="breed-card" data-section="chicken" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Vanaraja</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual Purpose</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Developer</span><span class="info-val">ICAR-Directorate of Poultry Research, Hyderabad</span></div>
+        <div class="info-row"><span class="info-label">Type</span><span class="info-val">Multi-coloured; dual purpose; backyard and semi-intensive</span></div>
+        <div class="info-row"><span class="info-label">Production</span><span class="info-val">~150 eggs/year; 2–2.5 kg body weight at 20 weeks; hardy</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Designed for RURAL backyard farming; tolerates harsh climate; lower plane of nutrition; popular in tribal areas</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"VANARAJA = VANA (forest) + RAJA (king) = Forest King; backyard/village KING chicken"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="egg">
+      <div class="card-header">
+        <div><div class="breed-name">Gramapriya</div></div>
+        <div class="card-badges"><span class="badge badge-egg">Layer</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Developer</span><span class="info-val">ICAR-DPR, Hyderabad</span></div>
+        <div class="info-row"><span class="info-label">Type</span><span class="info-val">Layer for free-range; brown eggs (55–60g)</span></div>
+        <div class="info-row"><span class="info-label">Production</span><span class="info-val">160–180 brown eggs/year; suitable for free-range village conditions</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">ICAR's village-level layer; brown eggs preferred in rural markets; heat-hardy</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"GRAMAPRIYA = GRAMA (village) + PRIYA (beloved) = village's beloved egg layer"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Krishibro</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Broiler</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Developer</span><span class="info-val">ICAR-DPR, Hyderabad</span></div>
+        <div class="info-row"><span class="info-label">Type</span><span class="info-val">Meat type; ~2 kg at 7 weeks; semi-intensive</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">ICAR's small-farm broiler; faster-growing than desi; less intensive than commercial Cobb/Ross</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"KRISHIBRO = KRISHI (farming) + BRO (broiler) = farming-level broiler chicken"</div>
+      </div>
+    </div>
+
+    <!-- EXOTIC COMMERCIAL -->
+    <div class="sub-section" style="grid-column:1/-1;margin-top:8px"><h3>⭐ Commercial Exotic Breeds (by Class)</h3></div>
+
+    <div class="breed-card" data-section="chicken" data-cat="egg">
+      <div class="card-header">
+        <div><div class="breed-name">White Leghorn</div><div class="breed-aka">Class: Mediterranean</div></div>
+        <div class="card-badges"><span class="badge badge-egg">Layer</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Livorno (Leghorn), Italy → USA</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Pure WHITE; bright RED single comb; white earlobes (all Mediterranean = white earlobes)</span></div>
+        <div class="info-row"><span class="info-label">Eggs</span><span class="info-val">250–300 WHITE eggs/year; most efficient layer; small body = feed efficient</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">MOST POPULAR commercial layer worldwide; backbone of India's egg industry; WHITE eggs; 5 spikes on comb</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"WHITE Leghorn = WHITE leg + WHITE eggs = all white; MOST eggs; Mediterranean WHITE earlobes"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Rhode Island Red</div><div class="breed-aka">Class: American</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Rhode Island, USA</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Deep RED/mahogany; yellow skin; red-orange eyes; single or rose comb</span></div>
+        <div class="info-row"><span class="info-label">Eggs</span><span class="info-val">200–250 BROWN eggs/year; body weight 3–4 kg</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Most important dual-purpose breed for India crossbreeding; hardy; adaptable; Sonali = RIR × Fayoumi</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"RIR = Reddish Indian Requirement; RED bird + BROWN eggs; Rhode Island = Red Island"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Plymouth Rock</div><div class="breed-aka">Class: American; also: Barred Rock</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Plymouth, Massachusetts, USA</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">BARRED (black and white stripes/bars across feathers) – most distinctive variety</span></div>
+        <div class="info-row"><span class="info-label">Eggs</span><span class="info-val">200 brown eggs/year; body weight 3–4 kg; good dual purpose</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Ancestor of modern commercial broiler (Barred Rock × Cornish = broiler foundation)</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"PLYMOUTH ROCK = ROCK-BARRED = barred/striped like a rock pattern; foundation of modern broiler"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Cornish</div><div class="breed-aka">Class: English; also: Indian Game</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Cornwall, England (hence Cornish; also called "Indian Game")</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Dark (like Aseel); wide body; very broad breast; short legs; pea comb</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">PRIMARY sire breed for commercial broiler; Cornish × Plymouth Rock/RIR = commercial broiler; heaviest breast meat</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"CORNISH = CORN chest = wide chest like corn cob; FATHER of modern broiler industry"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">New Hampshire</div><div class="breed-aka">Class: American</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">New Hampshire, USA (selected from RIR for faster growth)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Chestnut red/golden-red; lighter than RIR; single comb</span></div>
+        <div class="info-row"><span class="info-label">Eggs</span><span class="info-val">200 brown eggs/year; body weight 3–4 kg; early maturing</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Derived from RIR; faster growth; used as sire in India; early maturing = early market</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"NEW Hampshire = NEW improved RIR = lighter red, faster growth; RIR's faster younger sibling"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Australorp</div><div class="breed-aka">Class: English; Australian Black Orpington</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Australia (developed from Black Orpington)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Jet BLACK with green sheen on feathers; red comb and wattles; white skin</span></div>
+        <div class="info-row"><span class="info-label">Eggs</span><span class="info-val">Holds WORLD RECORD – 364 eggs in 365 days (1 hen); avg 250–300 eggs/year</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">World egg-laying record holder; black feathers; excellent dual purpose; popular in backyard India</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"AUSTRALORP = AUSTRALIA + WARP record = world RECORD egg layer; BLACK beauty with 364 eggs record"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="meat">
+      <div class="card-header">
+        <div><div class="breed-name">Brahma</div><div class="breed-aka">Class: Asiatic</div></div>
+        <div class="card-badges"><span class="badge badge-meat">Meat</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">USA (developed from Chittagong imports from India/Bangladesh + Shanghai fowl)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Light (white/grey) or Dark (black); FEATHERED LEGS – distinctive; pea comb</span></div>
+        <div class="info-row"><span class="info-label">Body</span><span class="info-val">LARGEST chicken breed; can reach 5–7 kg; slow growing; giant frame</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">"King of Poultry"; largest breed; Asiatic class; developed from Indian Chittagong base</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"BRAHMA = BRAHMA (Hindu creator god) = BIGGEST chicken = creator-level size; feathered feet like royal robes"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="egg">
+      <div class="card-header">
+        <div><div class="breed-name">Minorca</div><div class="breed-aka">Class: Mediterranean</div></div>
+        <div class="card-badges"><span class="badge badge-egg">Layer</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">Minorca Island, Spain</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">BLACK with large red single comb (drooping in females); white earlobes; white eggs</span></div>
+        <div class="info-row"><span class="info-label">Eggs</span><span class="info-val">LARGEST white eggs among all breeds; 200 eggs/year; lean body</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest eggs; 6 spikes on comb (vs Leghorn's 5); Mediterranean white earlobes; non-setter</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"MINORCA = MINIORCA (big whale) = LARGEST white eggs; 6-spike comb (one more than Leghorn)"</div>
+      </div>
+    </div>
+
+    <div class="breed-card" data-section="chicken" data-cat="dual">
+      <div class="card-header">
+        <div><div class="breed-name">Wyandotte</div><div class="breed-aka">Class: American</div></div>
+        <div class="card-badges"><span class="badge badge-dual">Dual</span><span class="badge badge-exotic">Foreign</span></div>
+      </div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Origin</span><span class="info-val">USA (named after Wyandot tribe)</span></div>
+        <div class="info-row"><span class="info-label">Colour</span><span class="info-val">Silver-laced (white with black edge) or Golden-laced; ROSE COMB – very flat and close to head</span></div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">ROSE comb = diagnostic; good cold-weather breed; laced feathers = ornamental + productive</span></div>
+        <div class="trick-box"><strong>🧠 MEMORY TRICK</strong>"WYANDOTTE = WHY-LACED = beautifully LACED silver/gold feathers; ROSE comb like a rose flower"</div>
+      </div>
+    </div>
+
+  </div><!-- end chickenGrid -->
+</section>
+
+<!-- Quick Reference Box -->
+<div class="classif-box" style="margin-top:48px">
+  <h3>🏆 Quick Exam Reference – Key Records & Superlatives</h3>
+  <table class="classif-table">
+    <tr><th>Category</th><th>Record</th><th>Breed</th></tr>
+    <tr><td>Best Indian Milch Cow</td><td>Highest milk yield</td><td>Sahiwal</td></tr>
+    <tr><td>Best Indian Milch Buffalo</td><td>Highest milk yield</td><td>Murrah</td></tr>
+    <tr><td>Highest Butterfat (any breed)</td><td>12–13% fat</td><td>Bhadawari Buffalo</td></tr>
+    <tr><td>Best Draught Breed (speed)</td><td>Fastest road draught</td><td>Nagori Cattle</td></tr>
+    <tr><td>Tallest Cattle</td><td>Largest Indian Zebu</td><td>Ongole</td></tr>
+    <tr><td>Tallest Sheep</td><td>Tallest Indian sheep</td><td>Muzaffarnagri</td></tr>
+    <tr><td>Most Prolific Sheep</td><td>Highest twinning</td><td>Garole (FecB gene)</td></tr>
+    <tr><td>Finest Carpet Wool</td><td>Best carpet wool sheep</td><td>Chokla (Bikaneri)</td></tr>
+    <tr><td>Best Apparel Wool (India)</td><td>Only South Indian apparel wool</td><td>Nilgiri Sheep</td></tr>
+    <tr><td>Tallest Indian Goat</td><td>Tallest + most elegant</td><td>Jamunapari</td></tr>
+    <tr><td>Best Skin Quality (Goat)</td><td>World Bank award winner</td><td>Black Bengal Goat</td></tr>
+    <tr><td>World Best Dairy Goat</td><td>Highest milk</td><td>Saanen</td></tr>
+    <tr><td>World Best Meat Goat</td><td>Heaviest, fastest</td><td>Boer</td></tr>
+    <tr><td>4 Pure Indian Chicken Breeds</td><td>ICAR recognized pure</td><td>Aseel, Chittagong, Busra, Kadaknath</td></tr>
+    <tr><td>Black Meat Chicken</td><td>Entire body black; GI tag</td><td>Kadaknath</td></tr>
+    <tr><td>World Record Egg Laying</td><td>364 eggs/365 days</td><td>Australorp</td></tr>
+    <tr><td>Best Commercial Layer</td><td>250–300 eggs/year</td><td>White Leghorn</td></tr>
+    <tr><td>Synthetic Cattle (ICAR)</td><td>HF × Sahiwal 62.5:37.5</td><td>Frieswal</td></tr>
+    <tr><td>Largest Buffalo Horns</td><td>Up to 1.5m long</td><td>Pandharpuri Buffalo</td></tr>
+    <tr><td>Drooping Horns Buffalo</td><td>Heaviest Indian buffalo</td><td>Jafarabadi</td></tr>
+  </table>
+</div>
+
+</main>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Nav active state
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+  const btn = document.getElementById('scrollTop');
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// Filter function
+function filterBreeds(section, cat, el) {
+  // Update tabs
+  const tabs = el.parentElement.querySelectorAll('.class-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  // Filter cards
+  const grid = document.getElementById(section + 'Grid');
+  const cards = grid.querySelectorAll('.breed-card');
+  cards.forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  // Show/hide sub-section headers (keep visible for UX)
+  const subs = grid.querySelectorAll('.sub-section');
+  subs.forEach(s => s.style.display = cat === 'all' ? '' : 'none');
+}
+</script>
+
+</body>
+</html>
