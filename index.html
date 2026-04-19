@@ -1240,7 +1240,7 @@ function buildMatchPairs(cat) {
   // Create one pair per breed: breed name → key fact
   return shuffle(pool.map(b => ({
     breed: b.name,
-    feature: b.key.length > 80 ? b.key.slice(0, 80) + '…' : b.key,
+    feature: b.key.length > 120 ? b.key.slice(0, b.key.lastIndexOf(';', 120) + 1 || 120) + '…' : b.key,
     cat: b.cat
   })));
 }
